@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const offerSchema = new mongoose.Schema({
     issuerMerchant: {
         type: mongoose.Types.ObjectId,
-        ref: 'merchant'
+        ref: 'merchant',
+        required: true
     },
     description: {
         type: String,
