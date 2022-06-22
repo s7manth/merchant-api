@@ -13,6 +13,11 @@ const getOffer = require('./functions/getOffer');
 const updateOffer = require('./functions/updateOffer');
 const deleteOffer = require('./functions/deleteOffer');
 
+const createReward = require('./functions/createReward');
+const getReward = require('./functions/getReward');
+const updateReward = require('./functions/updateReward');
+const deleteReward = require('./functions/deleteReward');
+
 const dataController = {
     createUser: createUser,
     getUser: getUser,
@@ -25,7 +30,11 @@ const dataController = {
     createOffer: createOffer,
     getOffer: getOffer,
     updateOffer: updateOffer,
-    deleteOffer: deleteOffer
+    deleteOffer: deleteOffer, 
+    createReward: createReward,
+    getReward: getReward,
+    updateReward: updateReward,
+    deleteReward: deleteReward
 };
 
 module.exports = dataController;
