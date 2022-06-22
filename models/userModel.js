@@ -12,6 +12,12 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Types.ObjectId,
             ref: 'offer'
         }
+    ],
+    payments: [
+        {
+            type: mongoose.Types.ObjectId,
+            ref: 'payment'
+        }
     ]
 });
 
