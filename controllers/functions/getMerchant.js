@@ -14,8 +14,8 @@ const getMerchant = async (req, res) => {
 
         if (!merchantObject) {
             return res.status(400).json({
-                msg: "Such Merchant Does Not Exist"
-            })
+                msg: 'Such Merchant Does Not Exist'
+            });
         }
 
         return res.status(200).json(merchantObject);
@@ -24,6 +24,6 @@ const getMerchant = async (req, res) => {
             msg: error.message
         });
     }
-}
+};
 
 module.exports = getMerchant;

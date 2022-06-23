@@ -13,14 +13,13 @@ const deleteUser = async (req, res) => {
         await user.findByIdAndDelete(id);
 
         return res.status(200).json({
-            msg: "User Deleted"
-        })
-
+            msg: 'User Deleted'
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error.message
         });
     }
-}
+};
 
 module.exports = deleteUser;

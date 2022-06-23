@@ -11,14 +11,14 @@ const createMerchant = async (req, res) => {
         await merchantObject.save();
 
         return res.status(200).json({
-            msg: "Merchant Object Created",
+            msg: 'Merchant Object Created',
             id: _id
-        })
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error.message
         });
     }
-}
+};
 
 module.exports = createMerchant;

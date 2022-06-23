@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const reward = require('../../models/rewardModel');
-const merchant = require('../../models/merchantModel')
+const merchant = require('../../models/merchantModel');
 
 const createReward = async (req, res) => {
     try {
@@ -10,20 +10,20 @@ const createReward = async (req, res) => {
 
         if (!merchantObject) {
             return res.status(400).json({
-                msg: "Merchant Identifier Invalid"
-            })
+                msg: 'Merchant Identifier Invalid'
+            });
         }
 
         if (!description) {
             return res.status(400).json({
-                msg: "Description Needed"
-            })
+                msg: 'Description Needed'
+            });
         }
 
         if (!title) {
             return res.status(400).json({
-                msg: "Title Needed"
-            })
+                msg: 'Title Needed'
+            });
         }
 
         const _id = mongoose.Types.ObjectId();
@@ -33,23 +33,23 @@ const createReward = async (req, res) => {
             title: title,
             description: description,
             issuerMerchant: merchantObject
-        })
+        });
 
         await rewardObject.save();
 
         await merchant.findByIdAndUpdate(issuerMerchantId, {
-            rewards : [ rewardObject ]
-        })
+            rewards: [...merchantObject.rewards, rewardObject]
+        });
 
         return res.status(200).json({
-            msg: "New Reward Created",
+            msg: 'New Reward Created',
             id: _id
-        })
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error.message
-        })
+        });
     }
-}
+};
 
-module.exports = createReward
+module.exports = createReward;

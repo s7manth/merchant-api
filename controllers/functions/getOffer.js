@@ -14,8 +14,8 @@ const getOffer = async (req, res) => {
 
         if (!offerObject) {
             return res.status(400).json({
-                msg: "Such Offer Does Not Exist"
-            })
+                msg: 'Such Offer Does Not Exist'
+            });
         }
 
         return res.status(200).json(offerObject);
@@ -24,6 +24,6 @@ const getOffer = async (req, res) => {
             msg: error.message
         });
     }
-}
+};
 
 module.exports = getOffer;

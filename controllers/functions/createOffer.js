@@ -10,26 +10,26 @@ const createOffer = async (req, res) => {
 
         if (!merchantObject) {
             return res.status(400).json({
-                msg: "Merchant Identifier Invalid"
-            })
+                msg: 'Merchant Identifier Invalid'
+            });
         }
 
         if (!description) {
             return res.status(400).json({
-                msg: "Description Needed"
-            })
+                msg: 'Description Needed'
+            });
         }
 
         if (!title) {
             return res.status(400).json({
-                msg: "Title Needed"
-            })
+                msg: 'Title Needed'
+            });
         }
 
         if (!discount) {
             return res.status(400).json({
-                msg: "Discount Needed"
-            })
+                msg: 'Discount Needed'
+            });
         }
 
         const _id = mongoose.Types.ObjectId();
@@ -40,24 +40,23 @@ const createOffer = async (req, res) => {
             description: description,
             discount: discount,
             issuerMerchant: merchantObject
-        })
+        });
 
         await offerObject.save();
 
         await merchant.findByIdAndUpdate(issuerMerchantId, {
-            offers : [ offerObject ]
-        })
+            offers: [...merchantObject.offers, offerObject]
+        });
 
         return res.status(200).json({
-            msg: "New Offer Created",
+            msg: 'New Offer Created',
             id: _id
-        })
-
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error.message
         });
     }
-}
+};
 
 module.exports = createOffer;

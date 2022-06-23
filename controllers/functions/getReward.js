@@ -1,4 +1,4 @@
-const reward = require('../../models/rewardModel')
+const reward = require('../../models/rewardModel');
 
 const getReward = async (req, res) => {
     try {
@@ -14,16 +14,16 @@ const getReward = async (req, res) => {
 
         if (!rewardObject) {
             return res.status(400).json({
-                msg: "Such Reward Does Not Exist"
-            })
+                msg: 'Such Reward Does Not Exist'
+            });
         }
 
         return res.status(200).json(rewardObject);
     } catch (error) {
         return res.status(500).json({
             msg: error.message
-        })
+        });
     }
-}
+};
 
 module.exports = getReward;

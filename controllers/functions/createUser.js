@@ -19,6 +19,6 @@ const createUser = async (req, res) => {
             msg: error.message
         });
     }
-}
+};
 
 module.exports = createUser;

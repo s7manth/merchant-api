@@ -1,11 +1,9 @@
 const createUser = require('./functions/createUser');
-const getUser = require('./functions/getUser')
-const updateUser = require('./functions/updateUser');
+const getUser = require('./functions/getUser');
 const deleteUser = require('./functions/deleteUser');
 
 const createMerchant = require('./functions/createMerchant');
 const getMerchant = require('./functions/getMerchant');
-const updateMerchant = require('./functions/updateMerchant');
 const deleteMerchant = require('./functions/deleteMerchant');
 
 const createOffer = require('./functions/createOffer');
@@ -18,23 +16,26 @@ const getReward = require('./functions/getReward');
 const updateReward = require('./functions/updateReward');
 const deleteReward = require('./functions/deleteReward');
 
+const createPayment = require('./functions/createPayment');
+const getPayment = require('./functions/getPayment');
+
 const dataController = {
     createUser: createUser,
     getUser: getUser,
-    updateUser: updateUser,
-    deleteUser: deleteUser, 
+    deleteUser: deleteUser,
     createMerchant: createMerchant,
     getMerchant: getMerchant,
-    updateMerchant: updateMerchant,
     deleteMerchant: deleteMerchant,
     createOffer: createOffer,
     getOffer: getOffer,
     updateOffer: updateOffer,
-    deleteOffer: deleteOffer, 
+    deleteOffer: deleteOffer,
     createReward: createReward,
     getReward: getReward,
     updateReward: updateReward,
-    deleteReward: deleteReward
+    deleteReward: deleteReward,
+    createPayment: createPayment,
+    getPayment: getPayment
 };
 
 module.exports = dataController;

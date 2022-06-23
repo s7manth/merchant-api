@@ -13,14 +13,13 @@ const deleteMerchant = async (req, res) => {
         await merchant.findByIdAndDelete(id);
 
         return res.status(200).json({
-            msg: "Merchant Deleted"
-        })
-
+            msg: 'Merchant Deleted'
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error.message
         });
     }
-}
+};
 
 module.exports = deleteMerchant;

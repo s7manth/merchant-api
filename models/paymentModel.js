@@ -8,14 +8,19 @@ const paymentSchema = new mongoose.Schema({
     sender: {
         type: mongoose.Types.ObjectId,
         required: true,
-        refPath: 'entityModel'
+        refPath: 'senderEntityModel'
     },
     receiver: {
         type: mongoose.Types.ObjectId,
         required: true,
-        refPath: 'entityModel'
+        refPath: 'receiverEntityModel'
     },
-    entityModel: {
+    senderEntityModel: {
+        type: String,
+        required: true,
+        enum: ['user', 'merchant']
+    },
+    receiverEntityModel: {
         type: String,
         required: true,
         enum: ['user', 'merchant']

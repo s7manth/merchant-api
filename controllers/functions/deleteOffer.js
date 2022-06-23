@@ -13,14 +13,13 @@ const deleteOffer = async (req, res) => {
         await offer.findByIdAndDelete(id);
 
         return res.status(200).json({
-            msg: "Offer Deleted"
-        })
-
+            msg: 'Offer Deleted'
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error.message
         });
     }
-}
+};
 
 module.exports = deleteOffer;

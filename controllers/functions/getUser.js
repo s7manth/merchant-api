@@ -14,8 +14,8 @@ const getUser = async (req, res) => {
 
         if (!userObject) {
             return res.status(400).json({
-                msg: "Such User Does Not Exist"
-            })
+                msg: 'Such User Does Not Exist'
+            });
         }
 
         return res.status(200).json(userObject);
@@ -24,6 +24,6 @@ const getUser = async (req, res) => {
             msg: error.message
         });
     }
-}
+};
 
 module.exports = getUser;
