@@ -127,6 +127,7 @@ Response format :
 Functionality : Creating a payment document on the database based on the given parameter values
 Endpoint : `/data/payment`
 Type of HTTP Request : `POST`
+Note : Attachment Identifier is an optional parameter
 
 Request format : 
 
@@ -135,7 +136,7 @@ Request format :
     "amount": "<the-amount-associated-with-the-payment>",
     "senderId": "<id-of-the-sender-entity>", 
     "receiverId": "<id-of-the-receiver-entity>", 
-    "attachmentId": "<id-of-the-attachment>" // this is an optional parameter
+    "attachmentId": "<id-of-the-attachment>"
 }
 ```
 
@@ -255,9 +256,9 @@ Response format :
 ```json
 {
     "_id": "<id-of-the-user>",
-    "offers": [], // list of the offers owned by the user
-    "rewards": [], // list of the rewards owned by the user
-    "payments": [] // list of the payments in which the user was involved
+    "offers": [], 
+    "rewards": [],
+    "payments": [] 
 }
 ```
 
@@ -280,9 +281,9 @@ Response format :
 ```json
 {
     "_id": "<id-of-the-merchant>",
-    "offers": [], // list of the offers issued by the merchant
-    "rewards": [], // list of the rewards issued by the merchant
-    "payments": [] // list of the payments in which the merchant was involved
+    "offers": [], 
+    "rewards": [], 
+    "payments": [] 
 }
 ```
 
@@ -291,6 +292,7 @@ Response format :
 Functionality : Getting offer document based on the given identifier
 Endpoint : `/data/offer`
 Type of HTTP Request : `GET`
+Note : Image is an optional field, it might not be present
 
 Request format : 
 
@@ -308,7 +310,7 @@ Response format :
     "issuerMerchant": "<issuer-merchant>",
     "description": "<description-of-the-offer>",
     "title": "<title-of-the-offer>",
-    "image": "<image-of-the-offer>", // this is an optional field, so might not be present
+    "image": "<image-of-the-offer>", 
     "discount": "<discount-associated-with-the-offer>"
 }
 ```
@@ -318,6 +320,7 @@ Response format :
 Functionality : Getting reward document based on the given identifier
 Endpoint : `/data/reward`
 Type of HTTP Request : `GET`
+Note : Image is an optional field, it might not be present
 
 Request format : 
 
@@ -335,7 +338,7 @@ Response format :
     "issuerMerchant": "<issuer-merchant>",
     "description": "<description-of-the-reward>",
     "title": "<title-of-the-reward>",
-    "image": "<image-of-the-reward>", // this is an optional field, so might not be present
+    "image": "<image-of-the-reward>", 
 }
 ```
 
@@ -344,6 +347,7 @@ Response format :
 Functionality : Getting payment document based on the given identifier
 Endpoint : `/data/payment`
 Type of HTTP Request : `GET`
+Note : Attachment is an optional field, it might not be present
 
 Request format : 
 
@@ -361,7 +365,7 @@ Response format :
     "sender":"<sender>",
     "receiver": "<receiver>",
     "amount": "<amount-associated-with-the-payment>",
-    "attachment": "<attachement-to-the-payment-like-offer-or-reward>" // this is an optional field, so might not be present
+    "attachment": "<attachement-to-the-payment-like-offer-or-reward>"
 }
 ```
 
@@ -370,17 +374,18 @@ Response format :
 Functionality : Updating the offer document based on the parameters
 Endpoint : `/data/offer`
 Type of HTTP Request : `PATCH`
+Note : Description, IssuerMerchant Identifier, Title, Image, and Discount are optional fields
 
 Request format : 
 
 ```json
 { 
     "id": "<id-of-the-offer-to-be-updated>",
-    "description": "<new-description>", // optional 
-    "issuerMerchantId": "<new-issuer-merchant>", // optional 
-    "title": "<new-title>", // optional 
-    "image": "<new-image>", // optional 
-    "discount": "<new-discount-amount>" // optional 
+    "description": "<new-description>", 
+    "issuerMerchantId": "<new-issuer-merchant>", 
+    "title": "<new-title>", 
+    "image": "<new-image>", 
+    "discount": "<new-discount-amount>" 
 }
 ```
 
@@ -397,16 +402,17 @@ Response format :
 Functionality : Updating the reward document based on the parameters
 Endpoint : `/data/reward`
 Type of HTTP Request : `PATCH`
+Note : Description, IssuerMerchant Identifier, Title, and Image are optional fields
 
 Request format : 
 
 ```json
 { 
     "id": "<id-of-the-reward-to-be-updated>",
-    "description": "<new-description>", // optional 
-    "issuerMerchantId": "<new-issuer-merchant>", // optional 
-    "title": "<new-title>", // optional 
-    "image": "<new-image>", // optional 
+    "description": "<new-description>", 
+    "issuerMerchantId": "<new-issuer-merchant>", 
+    "title": "<new-title>", 
+    "image": "<new-image>", 
 }
 ```
 
@@ -436,7 +442,7 @@ Response format :
 
 ```json
 {
-    "offers": [], // list of the offers owned by the user
+    "offers": [], 
 }
 ```
 
@@ -458,7 +464,7 @@ Response format :
 
 ```json
 {
-    "rewards": [], // list of the rewards owned by the user
+    "rewards": [], 
 }
 ```
 
@@ -480,7 +486,7 @@ Response format :
 
 ```json
 {
-    "offers": [], // list of the offers issued by the merchant
+    "offers": [], 
 }
 ```
 
@@ -502,7 +508,7 @@ Response format :
 
 ```json
 {
-    "rewards": [], // list of the rewards issued by the merchant
+    "rewards": [], 
 }
 ```
 
