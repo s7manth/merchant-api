@@ -45,8 +45,8 @@ Response format :
 
 ```json
 {
-    msg: "New User Created",
-    id: "<id-of-the-user-document-created>"
+    "msg": "New User Created",
+    "id": "<id-of-the-user-document-created>"
 }
 ```
 
@@ -66,8 +66,8 @@ Response format :
 
 ```json
 {
-    msg: "New Merchant Created",
-    id: "<id-of-the-merchant-document-created>"
+    "msg": "New Merchant Created",
+    "id": "<id-of-the-merchant-document-created>"
 }
 ```
 
@@ -81,10 +81,10 @@ Request format :
 
 ```json
 { 
-    issuerMerchantId: "<id-of-the-merchant-issuing-the-offer>",
-    description: "<offer-description>", 
-    title: "<offer-title>", 
-    discount: "<offer-discount>"
+    "issuerMerchantId": "<id-of-the-merchant-issuing-the-offer>",
+    "description": "<offer-description>", 
+    "title": "<offer-title>", 
+    "discount": "<offer-discount>"
 }
 ```
 
@@ -92,8 +92,8 @@ Response format :
 
 ```json
 {
-    msg: "New Offer Created",
-    id: "<id-of-the-offer-document-created>"
+    "msg": "New Offer Created",
+    "id": "<id-of-the-offer-document-created>"
 }
 ```
 
@@ -107,9 +107,9 @@ Request format :
 
 ```json
 { 
-    issuerMerchantId: "<id-of-the-merchant-issuing-the-reward>",
-    description: "<reward-description>", 
-    title: "<reward-title>"
+    "issuerMerchantId": "<id-of-the-merchant-issuing-the-reward>",
+    "description": "<reward-description>", 
+    "title": "<reward-title>"
 }
 ```
 
@@ -117,8 +117,8 @@ Response format :
 
 ```json
 {
-    msg: "New Reward Created",
-    id: "<id-of-the-reward-document-created>"
+    "msg": "New Reward Created",
+    "id": "<id-of-the-reward-document-created>"
 }
 ```
 
@@ -132,10 +132,10 @@ Request format :
 
 ```json
 { 
-    amount: "<the-amount-associated-with-the-payment>",
-    senderId: "<id-of-the-sender-entity>", 
-    receiverId: "<id-of-the-receiver-entity>", 
-    attachmentId: "<id-of-the-attachment>" // this is an optional parameter
+    "amount": "<the-amount-associated-with-the-payment>",
+    "senderId": "<id-of-the-sender-entity>", 
+    "receiverId": "<id-of-the-receiver-entity>", 
+    "attachmentId": "<id-of-the-attachment>" // this is an optional parameter
 }
 ```
 
@@ -143,8 +143,8 @@ Response format :
 
 ```json
 {
-    msg: "New Payment Created",
-    id: "<id-of-the-payment-document-created>"
+    "msg": "New Payment Created",
+    "id": "<id-of-the-payment-document-created>"
 }
 ```
 
@@ -158,7 +158,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-user-to-be-deleted>"
+    "id": "<id-of-the-user-to-be-deleted>"
 }
 ```
 
@@ -166,7 +166,7 @@ Response format :
 
 ```json
 {
-    msg: "User Deleted"
+    "msg": "User Deleted"
 }
 ```
 
@@ -180,7 +180,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-merchant-to-be-deleted>"
+    "id": "<id-of-the-merchant-to-be-deleted>"
 }
 ```
 
@@ -188,7 +188,7 @@ Response format :
 
 ```json
 {
-    msg: "Merchant Deleted"
+    "msg": "Merchant Deleted"
 }
 ```
 
@@ -202,7 +202,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-offer-to-be-deleted>"
+    "id": "<id-of-the-offer-to-be-deleted>"
 }
 ```
 
@@ -210,7 +210,7 @@ Response format :
 
 ```json
 {
-    msg: "Offer Deleted"
+    "msg": "Offer Deleted"
 }
 ```
 
@@ -224,7 +224,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-reward-to-be-deleted>"
+    "id": "<id-of-the-reward-to-be-deleted>"
 }
 ```
 
@@ -232,7 +232,7 @@ Response format :
 
 ```json
 {
-    msg: "Reward Deleted"
+    "msg": "Reward Deleted"
 }
 ```
 
@@ -246,7 +246,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-user-to-be-retrieved>"
+    "id": "<id-of-the-user-to-be-retrieved>"
 }
 ```
 
@@ -254,10 +254,10 @@ Response format :
 
 ```json
 {
-    _id: "<id-of-the-user>",
-    offers: [], // list of the offers owned by the user
-    rewards: [], // list of the rewards owned by the user
-    payments: [] // list of the payments in which the user was involved
+    "_id": "<id-of-the-user>",
+    "offers": [], // list of the offers owned by the user
+    "rewards": [], // list of the rewards owned by the user
+    "payments": [] // list of the payments in which the user was involved
 }
 ```
 
@@ -271,7 +271,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-merchant-to-be-retrieved>"
+    "id": "<id-of-the-merchant-to-be-retrieved>"
 }
 ```
 
@@ -279,10 +279,10 @@ Response format :
 
 ```json
 {
-    _id: "<id-of-the-merchant>",
-    offers: [], // list of the offers issued by the merchant
-    rewards: [], // list of the rewards issued by the merchant
-    payments: [] // list of the payments in which the merchant was involved
+    "_id": "<id-of-the-merchant>",
+    "offers": [], // list of the offers issued by the merchant
+    "rewards": [], // list of the rewards issued by the merchant
+    "payments": [] // list of the payments in which the merchant was involved
 }
 ```
 
@@ -296,7 +296,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-offer-to-be-retrieved>"
+    "id": "<id-of-the-offer-to-be-retrieved>"
 }
 ```
 
@@ -304,12 +304,12 @@ Response format :
 
 ```json
 {
-    _id: "<id-of-the-user>",
-    issuerMerchant: "<issuer-merchant>",
-    description: "<description-of-the-offer>",
-    title: "<title-of-the-offer>",
-    image: "<image-of-the-offer>", // this is an optional field, so might not be present
-    discount: "<discount-associated-with-the-offer>"
+    "_id": "<id-of-the-user>",
+    "issuerMerchant": "<issuer-merchant>",
+    "description": "<description-of-the-offer>",
+    "title": "<title-of-the-offer>",
+    "image": "<image-of-the-offer>", // this is an optional field, so might not be present
+    "discount": "<discount-associated-with-the-offer>"
 }
 ```
 
@@ -323,7 +323,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-reward-to-be-retrieved>"
+    "id": "<id-of-the-reward-to-be-retrieved>"
 }
 ```
 
@@ -331,11 +331,11 @@ Response format :
 
 ```json
 {
-    _id: "<id-of-the-reward>",
-    issuerMerchant: "<issuer-merchant>",
-    description: "<description-of-the-reward>",
-    title: "<title-of-the-reward>",
-    image: "<image-of-the-reward>", // this is an optional field, so might not be present
+    "_id": "<id-of-the-reward>",
+    "issuerMerchant": "<issuer-merchant>",
+    "description": "<description-of-the-reward>",
+    "title": "<title-of-the-reward>",
+    "image": "<image-of-the-reward>", // this is an optional field, so might not be present
 }
 ```
 
@@ -349,7 +349,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-payment-to-be-retrieved>"
+    "id": "<id-of-the-payment-to-be-retrieved>"
 }
 ```
 
@@ -357,11 +357,11 @@ Response format :
 
 ```json
 {
-    _id: "<id-of-the-reward>",
-    sender:"<sender>",
-    receiver: "<receiver>",
-    amount: "<amount-associated-with-the-payment>",
-    attachment: "<attachement-to-the-payment-like-offer-or-reward>" // this is an optional field, so might not be present
+    "_id": "<id-of-the-reward>",
+    "sender":"<sender>",
+    "receiver": "<receiver>",
+    "amount": "<amount-associated-with-the-payment>",
+    "attachment": "<attachement-to-the-payment-like-offer-or-reward>" // this is an optional field, so might not be present
 }
 ```
 
@@ -375,12 +375,12 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-offer-to-be-updated>",
-    description: "<new-description>", // optional 
-    issuerMerchantId: "<new-issuer-merchant>", // optional 
-    title: "<new-title>", // optional 
-    image: "<new-image>", // optional 
-    discount: "<new-discount-amount>" // optional 
+    "id": "<id-of-the-offer-to-be-updated>",
+    "description": "<new-description>", // optional 
+    "issuerMerchantId": "<new-issuer-merchant>", // optional 
+    "title": "<new-title>", // optional 
+    "image": "<new-image>", // optional 
+    "discount": "<new-discount-amount>" // optional 
 }
 ```
 
@@ -388,7 +388,7 @@ Response format :
 
 ```json
 {
-    msg: "Offer Updated"
+    "msg": "Offer Updated"
 }
 ```
 
@@ -402,11 +402,11 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-reward-to-be-updated>",
-    description: "<new-description>", // optional 
-    issuerMerchantId: "<new-issuer-merchant>", // optional 
-    title: "<new-title>", // optional 
-    image: "<new-image>", // optional 
+    "id": "<id-of-the-reward-to-be-updated>",
+    "description": "<new-description>", // optional 
+    "issuerMerchantId": "<new-issuer-merchant>", // optional 
+    "title": "<new-title>", // optional 
+    "image": "<new-image>", // optional 
 }
 ```
 
@@ -414,7 +414,7 @@ Response format :
 
 ```json
 {
-    msg: "Reward Updated"
+    "msg": "Reward Updated"
 }
 ```
 
@@ -428,7 +428,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-user>"
+    "id": "<id-of-the-user>"
 }
 ```
 
@@ -436,7 +436,7 @@ Response format :
 
 ```json
 {
-    offers: [], // list of the offers owned by the user
+    "offers": [], // list of the offers owned by the user
 }
 ```
 
@@ -450,7 +450,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-user>"
+    "id": "<id-of-the-user>"
 }
 ```
 
@@ -458,7 +458,7 @@ Response format :
 
 ```json
 {
-    rewards: [], // list of the rewards owned by the user
+    "rewards": [], // list of the rewards owned by the user
 }
 ```
 
@@ -472,7 +472,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-merchant>"
+    "id": "<id-of-the-merchant>"
 }
 ```
 
@@ -480,7 +480,7 @@ Response format :
 
 ```json
 {
-    offers: [], // list of the offers issued by the merchant
+    "offers": [], // list of the offers issued by the merchant
 }
 ```
 
@@ -494,7 +494,7 @@ Request format :
 
 ```json
 { 
-    id: "<id-of-the-merchant>"
+    "id": "<id-of-the-merchant>"
 }
 ```
 
@@ -502,7 +502,7 @@ Response format :
 
 ```json
 {
-    rewards: [], // list of the rewards issued by the merchant
+    "rewards": [], // list of the rewards issued by the merchant
 }
 ```
 
@@ -516,9 +516,9 @@ Request format :
 
 ```json
 { 
-    userId: "<id-of-the-user-involved-in-payment>", 
-    paymentId: "<payment-id>", 
-    merchantId: "<id-of-the-merchant-involved-in-payment>"
+    "userId": "<id-of-the-user-involved-in-payment>", 
+    "paymentId": "<payment-id>", 
+    "merchantId": "<id-of-the-merchant-involved-in-payment>"
 }
 ```
 
@@ -526,8 +526,8 @@ Response format :
 
 ```json
 {
-    msg: "Offer based on Payment Generated",
-    offer: "<offer-object>"
+    "msg": "Offer based on Payment Generated",
+    "offer": "<offer-object>"
 }
 ```
 
@@ -541,9 +541,9 @@ Request format :
 
 ```json
 { 
-    userId: "<id-of-the-user-involved-in-payment>", 
-    paymentId: "<payment-id>", 
-    merchantId: "<id-of-the-merchant-involved-in-payment>"
+    "userId": "<id-of-the-user-involved-in-payment>", 
+    "paymentId": "<payment-id>", 
+    "merchantId": "<id-of-the-merchant-involved-in-payment>"
 }
 ```
 
@@ -551,8 +551,8 @@ Response format :
 
 ```json
 {
-    msg: "Reward based on Payment Generated",
-    reward: "<reward-object>"
+    "msg": "Reward based on Payment Generated",
+    "reward": "<reward-object>"
 }
 ```
 
