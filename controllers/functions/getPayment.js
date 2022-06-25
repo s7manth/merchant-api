@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const payment = require('../../models/paymentModel');
 
 const getPayment = async (req, res) => {

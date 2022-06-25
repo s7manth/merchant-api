@@ -1,16 +1,21 @@
 ## API for building Merchant DAO
 
-This repository contains the source code for API for building a DAO. 
-The main functionalities include maintaining User-Merchant, Merchant-Merchant, 
-and User-User interactions regarding payments, offer and reward redemptions and issuing. 
+This repository contains the source code for API for building a DAO. The main
+functionalities include maintaining User-Merchant, Merchant-Merchant, and
+User-User interactions regarding payments, offer and reward redemptions and
+issuing.
 
 ### How to use this repository?
 
-In order to start development, the following steps are needed to be followed. 
+In order to start development, the following steps are needed to be followed.
 
-* Clone the repository using the following command line script : `git clone https://github.com/s7manth/merchant-api.git`
-* Once cloned, you need to set a few things : 
-    * Environment file `.env` : This contains the environment variables to be used, like MongoDB URL, default reward and offer redemption  configs. A sample `.env` file would look something like this : 
+-   Clone the repository using the following command line script :
+    `git clone https://github.com/s7manth/merchant-api.git`
+-   Once cloned, you need to set a few things :
+
+    -   Environment file `.env` : This contains the environment variables to be
+        used, like MongoDB URL, default reward and offer redemption configs. A
+        sample `.env` file would look something like this :
 
     ```
     MONGODB_URL=
@@ -21,27 +26,32 @@ In order to start development, the following steps are needed to be followed.
     PAYMENT_OFFER_DESCRIPTION=
     PAYMENT_OFFER_DISCOUNT=
     ```
-* Once the environment variables are set, one can start development by running the following command : `npm run dev`. This will run the express application on the default port 5001, unless one has set something else in the `.env` file. 
+
+-   Once the environment variables are set, one can start development by running
+    the following command : `npm run dev`. This will run the express application
+    on the default port 5001, unless one has set something else in the `.env`
+    file.
 
 ### The API Description
 
-The Merchant API has been structured according to the functionalities that are exposed at each point. There are two main endpoints : `data` and `logic`. These endpoints are served by the `dataRouter` and `logicRouter` respectively. 
+The Merchant API has been structured according to the functionalities that are
+exposed at each point. There are two main endpoints : `data` and `logic`. These
+endpoints are served by the `dataRouter` and `logicRouter` respectively.
 
-### Available Functions 
+### Available Functions
 
-* `createUser`
+-   `createUser`
 
-Functionality : Creating a user document on the database
-Endpoint : `/data/user`
+Functionality : Creating a user document on the database Endpoint : `/data/user`
 Type of HTTP Request : `POST`
 
-Request format : 
+Request format :
 
 ```json
-{ }
+{}
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -50,19 +60,18 @@ Response format :
 }
 ```
 
-* `createMerchant`
+-   `createMerchant`
 
-Functionality : Creating a merchant document on the database
-Endpoint : `/data/merchant`
-Type of HTTP Request : `POST`
+Functionality : Creating a merchant document on the database Endpoint :
+`/data/merchant` Type of HTTP Request : `POST`
 
-Request format : 
+Request format :
 
 ```json
-{ }
+{}
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -71,24 +80,23 @@ Response format :
 }
 ```
 
-* `createOffer`
+-   `createOffer`
 
-Functionality : Creating an offer document on the database based on the given parameter values
-Endpoint : `/data/offer`
-Type of HTTP Request : `POST`
+Functionality : Creating an offer document on the database based on the given
+parameter values Endpoint : `/data/offer` Type of HTTP Request : `POST`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "issuerMerchantId": "<id-of-the-merchant-issuing-the-offer>",
-    "description": "<offer-description>", 
-    "title": "<offer-title>", 
+    "description": "<offer-description>",
+    "title": "<offer-title>",
     "discount": "<offer-discount>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -97,23 +105,22 @@ Response format :
 }
 ```
 
-* `createReward`
+-   `createReward`
 
-Functionality : Creating a reward document on the database based on the given parameter values
-Endpoint : `/data/reward`
-Type of HTTP Request : `POST`
+Functionality : Creating a reward document on the database based on the given
+parameter values Endpoint : `/data/reward` Type of HTTP Request : `POST`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "issuerMerchantId": "<id-of-the-merchant-issuing-the-reward>",
-    "description": "<reward-description>", 
+    "description": "<reward-description>",
     "title": "<reward-title>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -122,25 +129,24 @@ Response format :
 }
 ```
 
-* `createPayment`
+-   `createPayment`
 
-Functionality : Creating a payment document on the database based on the given parameter values
-Endpoint : `/data/payment`
-Type of HTTP Request : `POST`
-Note : Attachment Identifier is an optional parameter
+Functionality : Creating a payment document on the database based on the given
+parameter values Endpoint : `/data/payment` Type of HTTP Request : `POST` Note :
+Attachment Identifier is an optional parameter
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "amount": "<the-amount-associated-with-the-payment>",
-    "senderId": "<id-of-the-sender-entity>", 
-    "receiverId": "<id-of-the-receiver-entity>", 
+    "senderId": "<id-of-the-sender-entity>",
+    "receiverId": "<id-of-the-receiver-entity>",
     "attachmentId": "<id-of-the-attachment>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -149,21 +155,20 @@ Response format :
 }
 ```
 
-* `deleteUser`
+-   `deleteUser`
 
 Functionality : Deleting a user document associated with the given identifier
-Endpoint : `/data/user`
-Type of HTTP Request : `DELETE`
+Endpoint : `/data/user` Type of HTTP Request : `DELETE`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-user-to-be-deleted>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -171,21 +176,20 @@ Response format :
 }
 ```
 
-* `deleteMerchant`
+-   `deleteMerchant`
 
-Functionality : Deleting a merchant document associated with the given identifier
-Endpoint : `/data/merchant`
-Type of HTTP Request : `DELETE`
+Functionality : Deleting a merchant document associated with the given
+identifier Endpoint : `/data/merchant` Type of HTTP Request : `DELETE`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-merchant-to-be-deleted>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -193,21 +197,20 @@ Response format :
 }
 ```
 
-* `deleteOffer`
+-   `deleteOffer`
 
 Functionality : Deleting an offer document associated with the given identifier
-Endpoint : `/data/offer`
-Type of HTTP Request : `DELETE`
+Endpoint : `/data/offer` Type of HTTP Request : `DELETE`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-offer-to-be-deleted>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -215,21 +218,20 @@ Response format :
 }
 ```
 
-* `deleteReward`
+-   `deleteReward`
 
 Functionality : Deleting a reward document associated with the given identifier
-Endpoint : `/data/reward`
-Type of HTTP Request : `DELETE`
+Endpoint : `/data/reward` Type of HTTP Request : `DELETE`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-reward-to-be-deleted>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -237,72 +239,69 @@ Response format :
 }
 ```
 
-* `getUser`
+-   `getUser`
 
-Functionality : Getting user document based on the given identifier
-Endpoint : `/data/user`
-Type of HTTP Request : `GET`
+Functionality : Getting user document based on the given identifier Endpoint :
+`/data/user` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-user-to-be-retrieved>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
     "_id": "<id-of-the-user>",
-    "offers": [], 
+    "offers": [],
     "rewards": [],
-    "payments": [] 
+    "payments": []
 }
 ```
 
-* `getMerchant`
+-   `getMerchant`
 
-Functionality : Getting merchant document based on the given identifier
-Endpoint : `/data/merchant`
-Type of HTTP Request : `GET`
+Functionality : Getting merchant document based on the given identifier Endpoint
+: `/data/merchant` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-merchant-to-be-retrieved>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
     "_id": "<id-of-the-merchant>",
-    "offers": [], 
-    "rewards": [], 
-    "payments": [] 
+    "offers": [],
+    "rewards": [],
+    "payments": []
 }
 ```
 
-* `getOffer`
+-   `getOffer`
 
-Functionality : Getting offer document based on the given identifier
-Endpoint : `/data/offer`
-Type of HTTP Request : `GET`
-Note : Image is an optional field, it might not be present
+Functionality : Getting offer document based on the given identifier Endpoint :
+`/data/offer` Type of HTTP Request : `GET` Note : Image is an optional field, it
+might not be present
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-offer-to-be-retrieved>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -310,27 +309,26 @@ Response format :
     "issuerMerchant": "<issuer-merchant>",
     "description": "<description-of-the-offer>",
     "title": "<title-of-the-offer>",
-    "image": "<image-of-the-offer>", 
+    "image": "<image-of-the-offer>",
     "discount": "<discount-associated-with-the-offer>"
 }
 ```
 
-* `getReward`
+-   `getReward`
 
-Functionality : Getting reward document based on the given identifier
-Endpoint : `/data/reward`
-Type of HTTP Request : `GET`
-Note : Image is an optional field, it might not be present
+Functionality : Getting reward document based on the given identifier Endpoint :
+`/data/reward` Type of HTTP Request : `GET` Note : Image is an optional field,
+it might not be present
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-reward-to-be-retrieved>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -338,58 +336,56 @@ Response format :
     "issuerMerchant": "<issuer-merchant>",
     "description": "<description-of-the-reward>",
     "title": "<title-of-the-reward>",
-    "image": "<image-of-the-reward>", 
+    "image": "<image-of-the-reward>"
 }
 ```
 
-* `getPayment`
+-   `getPayment`
 
-Functionality : Getting payment document based on the given identifier
-Endpoint : `/data/payment`
-Type of HTTP Request : `GET`
-Note : Attachment is an optional field, it might not be present
+Functionality : Getting payment document based on the given identifier Endpoint
+: `/data/payment` Type of HTTP Request : `GET` Note : Attachment is an optional
+field, it might not be present
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-payment-to-be-retrieved>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
     "_id": "<id-of-the-reward>",
-    "sender":"<sender>",
+    "sender": "<sender>",
     "receiver": "<receiver>",
     "amount": "<amount-associated-with-the-payment>",
     "attachment": "<attachement-to-the-payment-like-offer-or-reward>"
 }
 ```
 
-* `updateOffer`
+-   `updateOffer`
 
-Functionality : Updating the offer document based on the parameters
-Endpoint : `/data/offer`
-Type of HTTP Request : `PATCH`
-Note : Description, IssuerMerchant Identifier, Title, Image, and Discount are optional fields
+Functionality : Updating the offer document based on the parameters Endpoint :
+`/data/offer` Type of HTTP Request : `PATCH` Note : Description, IssuerMerchant
+Identifier, Title, Image, and Discount are optional fields
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-offer-to-be-updated>",
-    "description": "<new-description>", 
-    "issuerMerchantId": "<new-issuer-merchant>", 
-    "title": "<new-title>", 
-    "image": "<new-image>", 
-    "discount": "<new-discount-amount>" 
+    "description": "<new-description>",
+    "issuerMerchantId": "<new-issuer-merchant>",
+    "title": "<new-title>",
+    "image": "<new-image>",
+    "discount": "<new-discount-amount>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -397,26 +393,25 @@ Response format :
 }
 ```
 
-* `updateReward`
+-   `updateReward`
 
-Functionality : Updating the reward document based on the parameters
-Endpoint : `/data/reward`
-Type of HTTP Request : `PATCH`
-Note : Description, IssuerMerchant Identifier, Title, and Image are optional fields
+Functionality : Updating the reward document based on the parameters Endpoint :
+`/data/reward` Type of HTTP Request : `PATCH` Note : Description, IssuerMerchant
+Identifier, Title, and Image are optional fields
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-reward-to-be-updated>",
-    "description": "<new-description>", 
-    "issuerMerchantId": "<new-issuer-merchant>", 
-    "title": "<new-title>", 
-    "image": "<new-image>", 
+    "description": "<new-description>",
+    "issuerMerchantId": "<new-issuer-merchant>",
+    "title": "<new-title>",
+    "image": "<new-image>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -424,111 +419,106 @@ Response format :
 }
 ```
 
-* `getOffersByUser`
+-   `getOffersByUser`
 
-Functionality : Getting offers owned by the user
-Endpoint : `/logic/get-offers-by-user`
-Type of HTTP Request : `GET`
+Functionality : Getting offers owned by the user Endpoint :
+`/logic/get-offers-by-user` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-user>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
-    "offers": [], 
+    "offers": []
 }
 ```
 
-* `getRewardsByUser`
+-   `getRewardsByUser`
 
-Functionality : Getting rewards owned by the user
-Endpoint : `/logic/get-rewards-by-user`
-Type of HTTP Request : `GET`
+Functionality : Getting rewards owned by the user Endpoint :
+`/logic/get-rewards-by-user` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-user>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
-    "rewards": [], 
+    "rewards": []
 }
 ```
 
-* `getOffersByMerchant`
+-   `getOffersByMerchant`
 
-Functionality : Getting offers issued by the merchant
-Endpoint : `/logic/get-offers-by-merchant`
-Type of HTTP Request : `GET`
+Functionality : Getting offers issued by the merchant Endpoint :
+`/logic/get-offers-by-merchant` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-merchant>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
-    "offers": [], 
+    "offers": []
 }
 ```
 
-* `getRewardsByMerchant`
+-   `getRewardsByMerchant`
 
-Functionality : Getting rewards issued by the merchant
-Endpoint : `/logic/get-rewards-by-merchant`
-Type of HTTP Request : `GET`
+Functionality : Getting rewards issued by the merchant Endpoint :
+`/logic/get-rewards-by-merchant` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
+{
     "id": "<id-of-the-merchant>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
-    "rewards": [], 
+    "rewards": []
 }
 ```
 
-* `getOfferOnPayment`
+-   `getOfferOnPayment`
 
-Functionality : Generating a new offer based on the payment
-Endpoint : `/logic/get-offer-on-payment`
-Type of HTTP Request : `GET`
+Functionality : Generating a new offer based on the payment Endpoint :
+`/logic/get-offer-on-payment` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
-    "userId": "<id-of-the-user-involved-in-payment>", 
-    "paymentId": "<payment-id>", 
+{
+    "userId": "<id-of-the-user-involved-in-payment>",
+    "paymentId": "<payment-id>",
     "merchantId": "<id-of-the-merchant-involved-in-payment>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -537,23 +527,22 @@ Response format :
 }
 ```
 
-* `getRewardOnPayment`
+-   `getRewardOnPayment`
 
-Functionality : Generating a new reward based on the payment
-Endpoint : `/logic/get-reward-on-payment`
-Type of HTTP Request : `GET`
+Functionality : Generating a new reward based on the payment Endpoint :
+`/logic/get-reward-on-payment` Type of HTTP Request : `GET`
 
-Request format : 
+Request format :
 
 ```json
-{ 
-    "userId": "<id-of-the-user-involved-in-payment>", 
-    "paymentId": "<payment-id>", 
+{
+    "userId": "<id-of-the-user-involved-in-payment>",
+    "paymentId": "<payment-id>",
     "merchantId": "<id-of-the-merchant-involved-in-payment>"
 }
 ```
 
-Response format : 
+Response format :
 
 ```json
 {
@@ -561,4 +550,3 @@ Response format :
     "reward": "<reward-object>"
 }
 ```
-

@@ -9,7 +9,7 @@ const createPayment = async (req, res) => {
     try {
         const { amount, senderId, receiverId, attachmentId } = req.body;
 
-        if (!amount || !sender || !receiver) {
+        if (!amount || !senderId || !receiverId) {
             return res.status(400).json({
                 msg: 'Incomplete Information for Payment'
             });

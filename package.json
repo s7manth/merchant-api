@@ -5,11 +5,15 @@
     "main": "index.js",
     "scripts": {
         "dev": "nodemon index.js",
-        "format": "prettier --write ."
+        "format:check": "prettier --check .",
+        "format:write": "prettier --write .",
+        "lint:check": "eslint .",
+        "lint:fix": "eslint --fix ."
     },
     "author": "s7manth",
     "license": "MIT",
     "devDependencies": {
+        "eslint": "^8.18.0",
         "nodemon": "^2.0.16",
         "prettier": "^2.7.1"
     },
