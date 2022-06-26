@@ -42,7 +42,10 @@ endpoints are served by the `dataRouter` and `logicRouter` respectively.
 
 -   `createUser`
 
-Functionality : Creating a user document on the database Endpoint : `/data/user`
+Functionality : Creating a user document on the database 
+
+Endpoint : `/data/user`
+
 Type of HTTP Request : `POST`
 
 Request format :
@@ -62,8 +65,11 @@ Response format :
 
 -   `createMerchant`
 
-Functionality : Creating a merchant document on the database Endpoint :
-`/data/merchant` Type of HTTP Request : `POST`
+Functionality : Creating a merchant document on the database 
+
+Endpoint : `/data/merchant` 
+
+Type of HTTP Request : `POST`
 
 Request format :
 
@@ -83,7 +89,11 @@ Response format :
 -   `createOffer`
 
 Functionality : Creating an offer document on the database based on the given
-parameter values Endpoint : `/data/offer` Type of HTTP Request : `POST`
+parameter values 
+
+Endpoint : `/data/offer` 
+
+Type of HTTP Request : `POST`
 
 Request format :
 
@@ -108,7 +118,11 @@ Response format :
 -   `createReward`
 
 Functionality : Creating a reward document on the database based on the given
-parameter values Endpoint : `/data/reward` Type of HTTP Request : `POST`
+parameter values 
+
+Endpoint : `/data/reward` 
+
+Type of HTTP Request : `POST`
 
 Request format :
 
@@ -132,8 +146,13 @@ Response format :
 -   `createPayment`
 
 Functionality : Creating a payment document on the database based on the given
-parameter values Endpoint : `/data/payment` Type of HTTP Request : `POST` Note :
-Attachment Identifier is an optional parameter
+parameter values 
+
+Endpoint : `/data/payment` 
+
+Type of HTTP Request : `POST` 
+
+Note : Attachment Identifier is an optional parameter
 
 Request format :
 
@@ -158,7 +177,10 @@ Response format :
 -   `deleteUser`
 
 Functionality : Deleting a user document associated with the given identifier
-Endpoint : `/data/user` Type of HTTP Request : `DELETE`
+
+Endpoint : `/data/user` 
+
+Type of HTTP Request : `DELETE`
 
 Request format :
 
@@ -179,7 +201,11 @@ Response format :
 -   `deleteMerchant`
 
 Functionality : Deleting a merchant document associated with the given
-identifier Endpoint : `/data/merchant` Type of HTTP Request : `DELETE`
+identifier 
+
+Endpoint : `/data/merchant` 
+
+Type of HTTP Request : `DELETE`
 
 Request format :
 
@@ -200,7 +226,10 @@ Response format :
 -   `deleteOffer`
 
 Functionality : Deleting an offer document associated with the given identifier
-Endpoint : `/data/offer` Type of HTTP Request : `DELETE`
+
+Endpoint : `/data/offer` 
+
+Type of HTTP Request : `DELETE`
 
 Request format :
 
@@ -221,7 +250,10 @@ Response format :
 -   `deleteReward`
 
 Functionality : Deleting a reward document associated with the given identifier
-Endpoint : `/data/reward` Type of HTTP Request : `DELETE`
+
+Endpoint : `/data/reward` 
+
+Type of HTTP Request : `DELETE`
 
 Request format :
 
@@ -241,8 +273,11 @@ Response format :
 
 -   `getUser`
 
-Functionality : Getting user document based on the given identifier Endpoint :
-`/data/user` Type of HTTP Request : `GET`
+Functionality : Getting user document based on the given identifier 
+
+Endpoint : `/data/user` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -265,8 +300,11 @@ Response format :
 
 -   `getMerchant`
 
-Functionality : Getting merchant document based on the given identifier Endpoint
-: `/data/merchant` Type of HTTP Request : `GET`
+Functionality : Getting merchant document based on the given identifier 
+
+Endpoint : `/data/merchant` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -289,9 +327,13 @@ Response format :
 
 -   `getOffer`
 
-Functionality : Getting offer document based on the given identifier Endpoint :
-`/data/offer` Type of HTTP Request : `GET` Note : Image is an optional field, it
-might not be present
+Functionality : Getting offer document based on the given identifier 
+
+Endpoint : `/data/offer` 
+
+Type of HTTP Request : `GET` 
+
+Note : Image is an optional field, it might not be present
 
 Request format :
 
@@ -316,9 +358,13 @@ Response format :
 
 -   `getReward`
 
-Functionality : Getting reward document based on the given identifier Endpoint :
-`/data/reward` Type of HTTP Request : `GET` Note : Image is an optional field,
-it might not be present
+Functionality : Getting reward document based on the given identifier 
+
+Endpoint : `/data/reward` 
+
+Type of HTTP Request : `GET` 
+
+Note : Image is an optional field, it might not be present
 
 Request format :
 
@@ -342,9 +388,13 @@ Response format :
 
 -   `getPayment`
 
-Functionality : Getting payment document based on the given identifier Endpoint
-: `/data/payment` Type of HTTP Request : `GET` Note : Attachment is an optional
-field, it might not be present
+Functionality : Getting payment document based on the given identifier 
+
+Endpoint : `/data/payment` 
+
+Type of HTTP Request : `GET` 
+
+Note : Attachment is an optional field, it might not be present
 
 Request format :
 
@@ -368,9 +418,13 @@ Response format :
 
 -   `updateOffer`
 
-Functionality : Updating the offer document based on the parameters Endpoint :
-`/data/offer` Type of HTTP Request : `PATCH` Note : Description, IssuerMerchant
-Identifier, Title, Image, and Discount are optional fields
+Functionality : Updating the offer document based on the parameters 
+
+Endpoint : `/data/offer` 
+
+Type of HTTP Request : `PATCH` 
+
+Note : Description, IssuerMerchant Identifier, Title, Image, and Discount are optional fields
 
 Request format :
 
@@ -395,9 +449,13 @@ Response format :
 
 -   `updateReward`
 
-Functionality : Updating the reward document based on the parameters Endpoint :
-`/data/reward` Type of HTTP Request : `PATCH` Note : Description, IssuerMerchant
-Identifier, Title, and Image are optional fields
+Functionality : Updating the reward document based on the parameters 
+
+Endpoint : `/data/reward` 
+
+Type of HTTP Request : `PATCH` 
+
+Note : Description, IssuerMerchant Identifier, Title, and Image are optional fields
 
 Request format :
 
@@ -421,8 +479,11 @@ Response format :
 
 -   `getOffersByUser`
 
-Functionality : Getting offers owned by the user Endpoint :
-`/logic/get-offers-by-user` Type of HTTP Request : `GET`
+Functionality : Getting offers owned by the user 
+
+Endpoint : `/logic/get-offers-by-user` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -442,8 +503,11 @@ Response format :
 
 -   `getRewardsByUser`
 
-Functionality : Getting rewards owned by the user Endpoint :
-`/logic/get-rewards-by-user` Type of HTTP Request : `GET`
+Functionality : Getting rewards owned by the user 
+
+Endpoint : `/logic/get-rewards-by-user` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -463,8 +527,11 @@ Response format :
 
 -   `getOffersByMerchant`
 
-Functionality : Getting offers issued by the merchant Endpoint :
-`/logic/get-offers-by-merchant` Type of HTTP Request : `GET`
+Functionality : Getting offers issued by the merchant 
+
+Endpoint : `/logic/get-offers-by-merchant` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -484,8 +551,11 @@ Response format :
 
 -   `getRewardsByMerchant`
 
-Functionality : Getting rewards issued by the merchant Endpoint :
-`/logic/get-rewards-by-merchant` Type of HTTP Request : `GET`
+Functionality : Getting rewards issued by the merchant 
+
+Endpoint : `/logic/get-rewards-by-merchant` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -505,8 +575,11 @@ Response format :
 
 -   `getOfferOnPayment`
 
-Functionality : Generating a new offer based on the payment Endpoint :
-`/logic/get-offer-on-payment` Type of HTTP Request : `GET`
+Functionality : Generating a new offer based on the payment 
+
+Endpoint : `/logic/get-offer-on-payment` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
@@ -529,8 +602,11 @@ Response format :
 
 -   `getRewardOnPayment`
 
-Functionality : Generating a new reward based on the payment Endpoint :
-`/logic/get-reward-on-payment` Type of HTTP Request : `GET`
+Functionality : Generating a new reward based on the payment 
+
+Endpoint : `/logic/get-reward-on-payment` 
+
+Type of HTTP Request : `GET`
 
 Request format :
 
