@@ -9,6 +9,7 @@ app.use(express.json());
 const http = require('http').createServer(app);
 
 app.use('/data', require('./routes/dataRouter'));
+app.use('/logic', require('./routes/logicRouter'));
 
 const URL = `${process.env.MONGODB_URL}`;
 
