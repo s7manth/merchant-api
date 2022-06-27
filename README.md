@@ -10,7 +10,9 @@ issuing.
 In order to start development, the following steps are needed to be followed.
 
 -   Clone the repository using the following command line script :
-    `git clone https://github.com/s7manth/merchant-api.git`
+    ```shell
+    git clone https://github.com/s7manth/merchant-api.git
+    ```
 -   Once cloned, you need to set a few things :
 
     -   Environment file `.env` : This contains the environment variables to be
@@ -28,7 +30,12 @@ In order to start development, the following steps are needed to be followed.
     ```
 
 -   Once the environment variables are set, one can start development by running
-    the following command : `npm run dev`. This will run the express application
+    the following command : 
+    ```shell
+    npm run dev
+    ```
+    
+    This will run the express application
     on the default port 5001, unless one has set something else in the `.env`
     file.
 
