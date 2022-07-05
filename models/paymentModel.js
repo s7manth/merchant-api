@@ -32,7 +32,7 @@ const paymentSchema = new mongoose.Schema({
     },
     attachmentModel: {
         type: String,
-        required: true,
+        required: false,
         enum: ['offer', 'reward']
     }
 });

@@ -40,12 +40,8 @@ const createPayment = async (req, res) => {
             senderEntityModel: senderWrapper.type,
             receiverEntityModel: receiverWrapper.type,
             amount: amount,
-            attachment:
-                attachmentWrapper === null
-                    ? undefined
-                    : attachmentWrapper.object,
-            attachmentModel:
-                attachmentWrapper === null ? undefined : attachmentWrapper.type
+            attachment: attachmentWrapper.object,
+            attachmentModel: attachmentWrapper.type
         });
 
         await paymentObject.save();
