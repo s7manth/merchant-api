@@ -6,7 +6,10 @@ const getMerchant = async (req, res) => {
 
         if (!id) {
             return res.status(400).json({
-                msg: 'Unique Merchant Identifier not Provided'
+                "_id": "<id-of-the-merchant>",
+                offers: [],
+                rewards: [],
+                payments: []
             });
         }
 

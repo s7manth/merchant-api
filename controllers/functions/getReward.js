@@ -6,7 +6,11 @@ const getReward = async (req, res) => {
 
         if (!id) {
             return res.status(400).json({
-                msg: 'Unique Reward Identifier not Provided'
+                "_id": "<id-of-the-user>",
+                "issuerMerchant": "Merchant1",
+                "description": "default reward",
+                "title": "default reward",
+                "image": "test-image",
             });
         }
 
