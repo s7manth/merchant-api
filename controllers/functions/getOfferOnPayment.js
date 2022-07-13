@@ -28,8 +28,8 @@ const getOfferOnPayment = async (req, res) => {
         let isVerificationSuccessful = false;
 
         if (
-            userObject.payments.indexOf(paymentObject) !== -1 &&
-            merchantObject.payments.indexOf(paymentObject) !== -1 &&
+            userObject.payments.indexOf(paymentObject._id.toString()) !== -1 &&
+            merchantObject.payments.indexOf(paymentObject._id.toString()) !== -1 &&
             paymentObject.sender._id.toString() === userId.toString() &&
             paymentObject.receiver._id.toString() === merchantId.toString()
         ) {
