@@ -48,7 +48,8 @@ const getRewardOnPayment = async (req, res) => {
             _id: _id,
             title: process.env.PAYMENT_REWARD_TITLE,
             description: process.env.PAYMENT_REWARD_DESCRIPTION,
-            issuerMerchant: merchantObject
+            issuerMerchant: merchantObject,
+            image: process.env.REWARD_IMAGE
         });
 
         await rewardObject.save();

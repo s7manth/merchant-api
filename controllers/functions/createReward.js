@@ -32,7 +32,8 @@ const createReward = async (req, res) => {
             _id: _id,
             title: title,
             description: description,
-            issuerMerchant: merchantObject
+            issuerMerchant: merchantObject,
+            image: process.env.REWARD_IMAGE
         });
 
         await rewardObject.save();

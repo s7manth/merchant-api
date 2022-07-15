@@ -49,7 +49,8 @@ const getOfferOnPayment = async (req, res) => {
             title: process.env.PAYMENT_OFFER_TITLE,
             description: process.env.PAYMENT_OFFER_DESCRIPTION,
             discount: process.env.PAYMENT_OFFER_DISCOUNT,
-            issuerMerchant: merchantObject
+            issuerMerchant: merchantObject,
+            image: process.env.OFFER_IMAGE
         });
 
         await offerObject.save();
