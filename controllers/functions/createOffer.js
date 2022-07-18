@@ -39,7 +39,8 @@ const createOffer = async (req, res) => {
             title: title,
             description: description,
             discount: discount,
-            issuerMerchant: merchantObject
+            issuerMerchant: merchantObject,
+            image: process.env.OFFER_IMAGE
         });
 
         await offerObject.save();
