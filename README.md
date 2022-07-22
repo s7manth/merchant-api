@@ -22,22 +22,17 @@ In order to start development, the following steps are needed to be followed.
     ```
     MONGODB_URL=
     PORT=
-    PAYMENT_REWARD_TITLE=
-    PAYMENT_REWARD_DESCRIPTION=
-    PAYMENT_OFFER_TITLE=
-    PAYMENT_OFFER_DESCRIPTION=
-    PAYMENT_OFFER_DISCOUNT=
     ```
 
 -   Once the environment variables are set, one can start development by running
-    the following command : 
+    the following command :
+
     ```shell
     npm run dev
     ```
-    
-    This will run the express application
-    on the default port 5001, unless one has set something else in the `.env`
-    file.
+
+    This will run the express application on the default port 5001, unless one
+    has set something else in the `.env` file.
 
 ### The API Description
 
@@ -49,7 +44,7 @@ endpoints are served by the `dataRouter` and `logicRouter` respectively.
 
 -   `createUser`
 
-Functionality : Creating a user document on the database 
+Functionality : Creating a user document on the database
 
 Endpoint : `/data/user`
 
@@ -72,9 +67,9 @@ Response format :
 
 -   `createMerchant`
 
-Functionality : Creating a merchant document on the database 
+Functionality : Creating a merchant document on the database
 
-Endpoint : `/data/merchant` 
+Endpoint : `/data/merchant`
 
 Type of HTTP Request : `POST`
 
@@ -96,9 +91,9 @@ Response format :
 -   `createOffer`
 
 Functionality : Creating an offer document on the database based on the given
-parameter values 
+parameter values
 
-Endpoint : `/data/offer` 
+Endpoint : `/data/offer`
 
 Type of HTTP Request : `POST`
 
@@ -125,9 +120,9 @@ Response format :
 -   `createReward`
 
 Functionality : Creating a reward document on the database based on the given
-parameter values 
+parameter values
 
-Endpoint : `/data/reward` 
+Endpoint : `/data/reward`
 
 Type of HTTP Request : `POST`
 
@@ -153,11 +148,11 @@ Response format :
 -   `createPayment`
 
 Functionality : Creating a payment document on the database based on the given
-parameter values 
+parameter values
 
-Endpoint : `/data/payment` 
+Endpoint : `/data/payment`
 
-Type of HTTP Request : `POST` 
+Type of HTTP Request : `POST`
 
 Note : Attachment Identifier is an optional parameter
 
@@ -185,7 +180,7 @@ Response format :
 
 Functionality : Deleting a user document associated with the given identifier
 
-Endpoint : `/data/user` 
+Endpoint : `/data/user`
 
 Type of HTTP Request : `DELETE`
 
@@ -208,9 +203,9 @@ Response format :
 -   `deleteMerchant`
 
 Functionality : Deleting a merchant document associated with the given
-identifier 
+identifier
 
-Endpoint : `/data/merchant` 
+Endpoint : `/data/merchant`
 
 Type of HTTP Request : `DELETE`
 
@@ -234,7 +229,7 @@ Response format :
 
 Functionality : Deleting an offer document associated with the given identifier
 
-Endpoint : `/data/offer` 
+Endpoint : `/data/offer`
 
 Type of HTTP Request : `DELETE`
 
@@ -258,7 +253,7 @@ Response format :
 
 Functionality : Deleting a reward document associated with the given identifier
 
-Endpoint : `/data/reward` 
+Endpoint : `/data/reward`
 
 Type of HTTP Request : `DELETE`
 
@@ -280,9 +275,9 @@ Response format :
 
 -   `getUser`
 
-Functionality : Getting user document based on the given identifier 
+Functionality : Getting user document based on the given identifier
 
-Endpoint : `/data/user` 
+Endpoint : `/data/user`
 
 Type of HTTP Request : `GET`
 
@@ -307,9 +302,9 @@ Response format :
 
 -   `getMerchant`
 
-Functionality : Getting merchant document based on the given identifier 
+Functionality : Getting merchant document based on the given identifier
 
-Endpoint : `/data/merchant` 
+Endpoint : `/data/merchant`
 
 Type of HTTP Request : `GET`
 
@@ -334,11 +329,11 @@ Response format :
 
 -   `getOffer`
 
-Functionality : Getting offer document based on the given identifier 
+Functionality : Getting offer document based on the given identifier
 
-Endpoint : `/data/offer` 
+Endpoint : `/data/offer`
 
-Type of HTTP Request : `GET` 
+Type of HTTP Request : `GET`
 
 Note : Image is an optional field, it might not be present
 
@@ -365,11 +360,11 @@ Response format :
 
 -   `getReward`
 
-Functionality : Getting reward document based on the given identifier 
+Functionality : Getting reward document based on the given identifier
 
-Endpoint : `/data/reward` 
+Endpoint : `/data/reward`
 
-Type of HTTP Request : `GET` 
+Type of HTTP Request : `GET`
 
 Note : Image is an optional field, it might not be present
 
@@ -395,11 +390,11 @@ Response format :
 
 -   `getPayment`
 
-Functionality : Getting payment document based on the given identifier 
+Functionality : Getting payment document based on the given identifier
 
-Endpoint : `/data/payment` 
+Endpoint : `/data/payment`
 
-Type of HTTP Request : `GET` 
+Type of HTTP Request : `GET`
 
 Note : Attachment is an optional field, it might not be present
 
@@ -425,13 +420,14 @@ Response format :
 
 -   `updateOffer`
 
-Functionality : Updating the offer document based on the parameters 
+Functionality : Updating the offer document based on the parameters
 
-Endpoint : `/data/offer` 
+Endpoint : `/data/offer`
 
-Type of HTTP Request : `PATCH` 
+Type of HTTP Request : `PATCH`
 
-Note : Description, IssuerMerchant Identifier, Title, Image, and Discount are optional fields
+Note : Description, IssuerMerchant Identifier, Title, Image, and Discount are
+optional fields
 
 Request format :
 
@@ -456,13 +452,14 @@ Response format :
 
 -   `updateReward`
 
-Functionality : Updating the reward document based on the parameters 
+Functionality : Updating the reward document based on the parameters
 
-Endpoint : `/data/reward` 
+Endpoint : `/data/reward`
 
-Type of HTTP Request : `PATCH` 
+Type of HTTP Request : `PATCH`
 
-Note : Description, IssuerMerchant Identifier, Title, and Image are optional fields
+Note : Description, IssuerMerchant Identifier, Title, and Image are optional
+fields
 
 Request format :
 
@@ -486,9 +483,9 @@ Response format :
 
 -   `getOffersByUser`
 
-Functionality : Getting offers owned by the user 
+Functionality : Getting offers owned by the user
 
-Endpoint : `/logic/get-offers-by-user` 
+Endpoint : `/logic/get-offers-by-user`
 
 Type of HTTP Request : `GET`
 
@@ -510,9 +507,9 @@ Response format :
 
 -   `getRewardsByUser`
 
-Functionality : Getting rewards owned by the user 
+Functionality : Getting rewards owned by the user
 
-Endpoint : `/logic/get-rewards-by-user` 
+Endpoint : `/logic/get-rewards-by-user`
 
 Type of HTTP Request : `GET`
 
@@ -534,9 +531,9 @@ Response format :
 
 -   `getOffersByMerchant`
 
-Functionality : Getting offers issued by the merchant 
+Functionality : Getting offers issued by the merchant
 
-Endpoint : `/logic/get-offers-by-merchant` 
+Endpoint : `/logic/get-offers-by-merchant`
 
 Type of HTTP Request : `GET`
 
@@ -558,9 +555,9 @@ Response format :
 
 -   `getRewardsByMerchant`
 
-Functionality : Getting rewards issued by the merchant 
+Functionality : Getting rewards issued by the merchant
 
-Endpoint : `/logic/get-rewards-by-merchant` 
+Endpoint : `/logic/get-rewards-by-merchant`
 
 Type of HTTP Request : `GET`
 
@@ -582,9 +579,9 @@ Response format :
 
 -   `getOfferOnPayment`
 
-Functionality : Generating a new offer based on the payment 
+Functionality : Generating a new offer based on the payment
 
-Endpoint : `/logic/get-offer-on-payment` 
+Endpoint : `/logic/get-offer-on-payment`
 
 Type of HTTP Request : `GET`
 
@@ -594,7 +591,10 @@ Request format :
 {
     "userId": "<id-of-the-user-involved-in-payment>",
     "paymentId": "<payment-id>",
-    "merchantId": "<id-of-the-merchant-involved-in-payment>"
+    "merchantId": "<id-of-the-merchant-involved-in-payment>",
+    "offerTitle": "<title-for-the-offer>",
+    "offerDescription": "<description-for-the-offer>",
+    "offerDiscount": "<discount-for-the-offer>"
 }
 ```
 
@@ -609,9 +609,9 @@ Response format :
 
 -   `getRewardOnPayment`
 
-Functionality : Generating a new reward based on the payment 
+Functionality : Generating a new reward based on the payment
 
-Endpoint : `/logic/get-reward-on-payment` 
+Endpoint : `/logic/get-reward-on-payment`
 
 Type of HTTP Request : `GET`
 
@@ -621,7 +621,9 @@ Request format :
 {
     "userId": "<id-of-the-user-involved-in-payment>",
     "paymentId": "<payment-id>",
-    "merchantId": "<id-of-the-merchant-involved-in-payment>"
+    "merchantId": "<id-of-the-merchant-involved-in-payment>",
+    "rewardTitle": "<title-for-the-reward>",
+    "rewardDescription": "<description-for-the-reward>"
 }
 ```
 

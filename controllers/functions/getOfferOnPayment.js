@@ -7,11 +7,25 @@ const mongoose = require('mongoose');
 
 const getOfferOnPayment = async (req, res) => {
     try {
-        const { userId, paymentId, merchantId } = req.body;
+        const {
+            userId,
+            paymentId,
+            merchantId,
+            offerTitle,
+            offerDescription,
+            offerDiscount
+        } = req.body;
 
-        if (!userId || !paymentId || !merchantId) {
+        if (
+            !userId ||
+            !paymentId ||
+            !merchantId ||
+            !offerTitle ||
+            !offerDescription ||
+            !offerDiscount
+        ) {
             return res.status(400).json({
-                msg: 'User, Payment, or Merchant Identifier not Provided'
+                msg: 'User, Payment, Merchant Identifier, or Offer Information not Provided'
             });
         }
 
@@ -29,7 +43,8 @@ const getOfferOnPayment = async (req, res) => {
 
         if (
             userObject.payments.indexOf(paymentObject._id.toString()) !== -1 &&
-            merchantObject.payments.indexOf(paymentObject._id.toString()) !== -1 &&
+            merchantObject.payments.indexOf(paymentObject._id.toString()) !==
+                -1 &&
             paymentObject.sender._id.toString() === userId.toString() &&
             paymentObject.receiver._id.toString() === merchantId.toString()
         ) {
@@ -46,9 +61,9 @@ const getOfferOnPayment = async (req, res) => {
 
         const offerObject = new offer({
             _id: _id,
-            title: process.env.PAYMENT_OFFER_TITLE,
-            description: process.env.PAYMENT_OFFER_DESCRIPTION,
-            discount: process.env.PAYMENT_OFFER_DISCOUNT,
+            title: offerTitle,
+            description: offerDescription,
+            discount: offerDiscount,
             issuerMerchant: merchantObject,
             image: process.env.OFFER_IMAGE
         });

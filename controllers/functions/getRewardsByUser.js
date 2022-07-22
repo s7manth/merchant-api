@@ -1,4 +1,5 @@
 const user = require('../../models/userModel');
+const reward = require('../../models/rewardModel');
 
 const getRewardsByUser = async (req, res) => {
     try {
@@ -18,8 +19,14 @@ const getRewardsByUser = async (req, res) => {
             });
         }
 
+        const rs = await reward.find({
+            _id: {
+                $in: userObject.rewards
+            }
+        });
+
         return res.status(200).json({
-            rewards: userObject.rewards
+            rewards: rs
         });
     } catch (error) {
         return res.status(500).json({

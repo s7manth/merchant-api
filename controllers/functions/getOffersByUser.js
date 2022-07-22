@@ -1,4 +1,5 @@
 const user = require('../../models/userModel');
+const offer = require('../../models/offerModel');
 
 const getOffersByUser = async (req, res) => {
     try {
@@ -18,8 +19,14 @@ const getOffersByUser = async (req, res) => {
             });
         }
 
+        const os = await offer.find({
+            _id: {
+                $in: userObject.offers
+            }
+        });
+
         return res.status(200).json({
-            offers: userObject.offers
+            offers: os
         });
     } catch (error) {
         return res.status(500).json({

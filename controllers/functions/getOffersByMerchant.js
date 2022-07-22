@@ -1,4 +1,5 @@
 const merchant = require('../../models/merchantModel');
+const offer = require('../../models/offerModel');
 
 const getOffersByMerchant = async (req, res) => {
     try {
@@ -18,8 +19,14 @@ const getOffersByMerchant = async (req, res) => {
             });
         }
 
+        const os = await offer.find({
+            _id: {
+                $in: merchantObject.offers
+            }
+        });
+
         return res.status(200).json({
-            offers: merchantObject.offers
+            offers: os
         });
     } catch (error) {
         return res.status(500).json({

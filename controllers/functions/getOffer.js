@@ -6,12 +6,12 @@ const getOffer = async (req, res) => {
 
         if (!id) {
             return res.status(200).json({
-                "_id": "<id-of-the-user>",
-                "issuerMerchant": "Merchant1",
-                "description": "default offer",
-                "title": "default offer",
-                "image": "test-image",
-                "discount": 10
+                _id: '<id-of-the-user>',
+                issuerMerchant: 'Merchant1',
+                description: 'default offer',
+                title: 'default offer',
+                image: 'test-image',
+                discount: 10
             });
         }
 

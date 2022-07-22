@@ -6,7 +6,7 @@ const getUser = async (req, res) => {
 
         if (!id) {
             return res.status(400).json({
-                "_id": "<id-of-the-user>",
+                _id: '<id-of-the-user>',
                 offers: [],
                 rewards: [],
                 payments: []

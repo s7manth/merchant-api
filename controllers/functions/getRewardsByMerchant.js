@@ -1,4 +1,5 @@
 const merchant = require('../../models/merchantModel');
+const reward = require('../../models/rewardModel');
 
 const getRewardsByMerchant = async (req, res) => {
     try {
@@ -18,8 +19,14 @@ const getRewardsByMerchant = async (req, res) => {
             });
         }
 
+        const rs = await reward.find({
+            _id: {
+                $in: merchantObject.rewards
+            }
+        });
+
         return res.status(200).json({
-            rewards: merchantObject.rewards
+            rewards: rs
         });
     } catch (error) {
         return res.status(500).json({

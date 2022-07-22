@@ -6,11 +6,11 @@ const getReward = async (req, res) => {
 
         if (!id) {
             return res.status(400).json({
-                "_id": "<id-of-the-user>",
-                "issuerMerchant": "Merchant1",
-                "description": "default reward",
-                "title": "default reward",
-                "image": "test-image",
+                _id: '<id-of-the-user>',
+                issuerMerchant: 'Merchant1',
+                description: 'default reward',
+                title: 'default reward',
+                image: 'test-image'
             });
         }
 

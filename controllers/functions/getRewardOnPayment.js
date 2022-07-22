@@ -7,11 +7,23 @@ const mongoose = require('mongoose');
 
 const getRewardOnPayment = async (req, res) => {
     try {
-        const { userId, paymentId, merchantId } = req.body;
+        const {
+            userId,
+            paymentId,
+            merchantId,
+            rewardTitle,
+            rewardDescription
+        } = req.body;
 
-        if (!userId || !paymentId || !merchantId) {
+        if (
+            !userId ||
+            !paymentId ||
+            !merchantId ||
+            !rewardTitle ||
+            !rewardDescription
+        ) {
             return res.status(400).json({
-                msg: 'User, Payment, or Merchant Identifier not Provided'
+                msg: 'User, Payment, Merchant Identifier, or Reward Information not Provided'
             });
         }
 
@@ -29,7 +41,8 @@ const getRewardOnPayment = async (req, res) => {
 
         if (
             userObject.payments.indexOf(paymentObject._id.toString()) !== -1 &&
-            merchantObject.payments.indexOf(paymentObject._id.toString()) !== -1 &&
+            merchantObject.payments.indexOf(paymentObject._id.toString()) !==
+                -1 &&
             paymentObject.sender._id.toString() === userId.toString() &&
             paymentObject.receiver._id.toString() === merchantId.toString()
         ) {
@@ -46,8 +59,8 @@ const getRewardOnPayment = async (req, res) => {
 
         const rewardObject = new reward({
             _id: _id,
-            title: process.env.PAYMENT_REWARD_TITLE,
-            description: process.env.PAYMENT_REWARD_DESCRIPTION,
+            title: rewardTitle,
+            description: rewardDescription,
             issuerMerchant: merchantObject,
             image: process.env.REWARD_IMAGE
         });
