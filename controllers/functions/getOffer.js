@@ -10,7 +10,7 @@ const getOffer = async (req, res) => {
                 issuerMerchant: 'Merchant1',
                 description: 'default offer',
                 title: 'default offer',
-                image: 'test-image',
+                image: 'https://res.cloudinary.com/cbandi-001/image/upload/v1658656581/merchant-api-assets/offer_zpbvcd.jpg',
                 discount: 10
             });
         }

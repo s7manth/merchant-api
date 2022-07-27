@@ -10,7 +10,7 @@ const getReward = async (req, res) => {
                 issuerMerchant: 'Merchant1',
                 description: 'default reward',
                 title: 'default reward',
-                image: 'test-image'
+                image: 'https://res.cloudinary.com/cbandi-001/image/upload/v1658656583/merchant-api-assets/reward_ug5yho.jpg'
             });
         }
 
