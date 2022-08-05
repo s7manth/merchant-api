@@ -23,6 +23,11 @@ const offerSchema = new mongoose.Schema({
     discount: {
         type: Number,
         required: [true, 'Please enter the discount percentage']
+    }, 
+    userOwner: {
+        type: mongoose.Types.ObjectId,
+        ref: 'user',
+        required: true
     }
 });
 

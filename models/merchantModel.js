@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const merchantSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        trim: true,
+        required: true
+    },
     rewards: [
         {
             type: mongoose.Types.ObjectId,
