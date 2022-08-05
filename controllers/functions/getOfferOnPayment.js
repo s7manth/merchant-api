@@ -10,22 +10,16 @@ const getOfferOnPayment = async (req, res) => {
         const {
             userId,
             paymentId,
-            merchantId,
-            offerTitle,
-            offerDescription,
-            offerDiscount
+            merchantId
         } = req.body;
 
         if (
             !userId ||
             !paymentId ||
-            !merchantId ||
-            !offerTitle ||
-            !offerDescription ||
-            !offerDiscount
+            !merchantId
         ) {
             return res.status(400).json({
-                msg: 'User, Payment, Merchant Identifier, or Offer Information not Provided'
+                msg: 'User, Payment, or Merchant Identifier not Provided'
             });
         }
 
@@ -61,11 +55,11 @@ const getOfferOnPayment = async (req, res) => {
 
         const offerObject = new offer({
             _id: _id,
-            title: offerTitle,
-            description: offerDescription,
-            discount: offerDiscount,
+            title: merchantObject.configOfferTitle || process.env.DEFAULT_OFFER_TITLE,
+            description: merchantObject.configOfferDescription || process.env.DEFAULT_OFFER_DESCRIPTION,
+            discount: merchantObject.configOfferDiscount || process.env.DEFAULT_OFFER_DISCOUNT,
             issuerMerchant: merchantObject,
-            image: process.env.OFFER_IMAGE
+            image: merchantObject.configOfferImage || process.env.DEFAULT_OFFER_IMAGE
         });
 
         await offerObject.save();

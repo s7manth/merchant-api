@@ -10,20 +10,16 @@ const getRewardOnPayment = async (req, res) => {
         const {
             userId,
             paymentId,
-            merchantId,
-            rewardTitle,
-            rewardDescription
+            merchantId
         } = req.body;
 
         if (
             !userId ||
             !paymentId ||
-            !merchantId ||
-            !rewardTitle ||
-            !rewardDescription
+            !merchantId
         ) {
             return res.status(400).json({
-                msg: 'User, Payment, Merchant Identifier, or Reward Information not Provided'
+                msg: 'User, Payment, or Merchant Identifier not Provided'
             });
         }
 
@@ -59,10 +55,11 @@ const getRewardOnPayment = async (req, res) => {
 
         const rewardObject = new reward({
             _id: _id,
-            title: rewardTitle,
-            description: rewardDescription,
+            title: merchantObject.configRewardTitle || process.env.DEFAULT_REWARD_TITLE,
+            description: merchantObject.configRewardDescription || process.env.DEFAULT_REWARD_DESCRIPTION,
             issuerMerchant: merchantObject,
-            image: process.env.REWARD_IMAGE
+            image: merchantObject.configRewardImage || process.env.DEFAULT_REWARD_IMAGE,
+            value: merchantObject.configRewardAmount || process.env.DEFAULT_REWARD_AMOUNT
         });
 
         await rewardObject.save();

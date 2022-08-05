@@ -6,6 +6,38 @@ const merchantSchema = new mongoose.Schema({
         trim: true,
         required: true
     },
+    configOfferTitle: {
+        type: String,
+        trim: true
+    },
+    configOfferDiscount: {
+        type: String,
+        trim: true
+    },
+    configOfferDescription: {
+        type: String,
+        trim: true
+    },
+    configRewardTitle: {
+        type: String,
+        trim: true
+    }, 
+    configRewardAmount: {
+        type: String,
+        trim: true
+    }, 
+    configRewardDescription: {
+        type: String,
+        trim: true
+    },
+    configOfferImage: {
+        type: String,
+        trim: true
+    },
+    configRewardImage: {
+        type: String,
+        trim: true
+    },
     rewards: [
         {
             type: mongoose.Types.ObjectId,

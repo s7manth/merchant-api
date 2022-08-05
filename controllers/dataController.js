@@ -5,6 +5,7 @@ const deleteUser = require('./functions/deleteUser');
 const createMerchant = require('./functions/createMerchant');
 const getMerchant = require('./functions/getMerchant');
 const deleteMerchant = require('./functions/deleteMerchant');
+const updateMerchant = require('./functions/updateMerchant');
 
 const createOffer = require('./functions/createOffer');
 const getOffer = require('./functions/getOffer');
@@ -26,6 +27,7 @@ const dataController = {
     createMerchant: createMerchant,
     getMerchant: getMerchant,
     deleteMerchant: deleteMerchant,
+    updateMerchant, updateMerchant,
     createOffer: createOffer,
     getOffer: getOffer,
     updateOffer: updateOffer,

@@ -10,6 +10,7 @@ router.delete('/user', dataController.deleteUser);
 router.post('/merchant', dataController.createMerchant);
 router.get('/merchant', dataController.getMerchant);
 router.delete('/merchant', dataController.deleteMerchant);
+router.patch('/merchant', dataController.updateMerchant);
 
 // router.post('/offer', dataController.createOffer);
 router.get('/offer', dataController.getOffer);
