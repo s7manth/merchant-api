@@ -62,8 +62,8 @@ const getUser = async (req, res) => {
             offers: offerDict,
             rewards: rewardDict,
             payments: userObject.payments
-        }
-        );
+        });
+        
     } catch (error) {
         return res.status(500).json({
             msg: error.message
