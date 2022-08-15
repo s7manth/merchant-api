@@ -27,7 +27,7 @@ const dataController = {
     createMerchant: createMerchant,
     getMerchant: getMerchant,
     deleteMerchant: deleteMerchant,
-    updateMerchant, updateMerchant,
+    updateMerchant: updateMerchant,
     createOffer: createOffer,
     getOffer: getOffer,
     updateOffer: updateOffer,
