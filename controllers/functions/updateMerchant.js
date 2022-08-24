@@ -1,4 +1,5 @@
 const merchant = require('../../models/merchantModel');
+const offer = require('../../models/offerModel');
 
 const updateMerchant = async (req, res) => {
     try {

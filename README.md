@@ -2,8 +2,8 @@
 
 This repository contains the source code for API for building a DAO. The main
 functionalities include maintaining User-Merchant, Merchant-Merchant, and
-User-User interactions regarding payments, offer and reward redemptions and
-issuing.
+User-User interactions regarding payments, offer and reward issuing and 
+redemptions. 
 
 ### How to use this repository?
 
@@ -37,8 +37,8 @@ In order to start development, the following steps are needed to be followed.
 ### The API Description
 
 The Merchant API has been structured according to the functionalities that are
-exposed at each point. There are two main endpoints : `data` and `logic`. These
-endpoints are served by the `dataRouter` and `logicRouter` respectively.
+exposed at each point. There are three main endpoints : `data`, `logic`, and `scrape`. These
+endpoints are served by the `dataRouter`, `logicRouter`, and `scrapeRouter` respectively.
 
 ### Available Functions
 
@@ -73,10 +73,22 @@ Endpoint : `/data/merchant`
 
 Type of HTTP Request : `POST`
 
+Note : All parameters except name are optional
+
 Request format :
 
 ```json
-{}
+{
+    "name": "<name-of-the-merchant>",
+    "configOfferTitle": "<config-offer-title>",
+    "configOfferDiscount": "<config-offer-discount>",
+    "configOfferDescription": "<config-offer-description>",
+    "configRewardTitle": "<config-reward-title>",
+    "configRewardAmount": "<config-reward-amount>",
+    "configRewardDescription": "<config-reward-description>",
+    "configOfferImage": "<config-offer-image>",
+    "configRewardImage": "config-reward-image"
+}
 ```
 
 Response format :
@@ -84,6 +96,7 @@ Response format :
 ```json
 {
     "msg": "New Merchant Created",
+    "name": "<name-of-the-merchant>",
     "id": "<id-of-the-merchant-document-created>"
 }
 ```
@@ -481,6 +494,42 @@ Response format :
 }
 ```
 
+-   `updateMerchant`
+
+Functionality : Updating the merchant document based on the parameters
+
+Endpoint : `/data/merchant`
+
+Type of HTTP Request : `PATCH`
+
+Note : Description, IssuerMerchant Identifier, Title, and Image are optional
+fields
+
+Request format :
+
+```json
+{
+    "id": "<id-of-the-reward-to-be-updated>",
+    "name": "<name-of-the-merchant>",
+    "configOfferTitle": "<config-offer-title>",
+    "configOfferDiscount": "<config-offer-discount>",
+    "configOfferDescription": "<config-offer-description>",
+    "configRewardTitle": "<config-reward-title>",
+    "configRewardAmount": "<config-reward-amount>",
+    "configRewardDescription": "<config-reward-description>",
+    "configOfferImage": "<config-offer-image>",
+    "configRewardImage": "config-reward-image"
+}
+```
+
+Response format :
+
+```json
+{
+    "msg": "Merchant Updated"
+}
+```
+
 -   `getOffersByUser`
 
 Functionality : Getting offers owned by the user
@@ -635,3 +684,32 @@ Response format :
     "reward": "<reward-object>"
 }
 ```
+
+-   `scrapeSquare`
+
+Functionality : Scraping the URL for Square Payment QR codes
+
+Endpoint : `/scrape/square`
+
+Type of HTTP Request : `POST`
+
+Request format :
+
+```json
+{
+    "url": "<url-of-the-payment-qr-code>"
+}
+```
+
+Response format :
+
+```json
+{
+    "merchantName": "<name-of-the-merchant",
+    "totalAmount": "<total-transaction-amount>",
+    "itemNames": "<names-of-the-items>",
+    "itemPrices": "<prices-of-the-items>",
+    "itemQuantities": "<quantities-of-the-items>"
+}
+```
+
