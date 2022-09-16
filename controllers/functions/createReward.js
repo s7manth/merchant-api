@@ -4,7 +4,7 @@ const merchant = require('../../models/merchantModel');
 
 const createReward = async (req, res) => {
     try {
-        const { issuerMerchantId, description, title } = req.body;
+        const { issuerMerchantId, description, title, userOwner } = req.body;
 
         const merchantObject = await merchant.findById(issuerMerchantId);
 
@@ -33,7 +33,8 @@ const createReward = async (req, res) => {
             title: title,
             description: description,
             issuerMerchant: merchantObject,
-            image: process.env.REWARD_IMAGE
+            image: process.env.REWARD_IMAGE, 
+            userOwner: userOwner
         });
 
         await rewardObject.save();

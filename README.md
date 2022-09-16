@@ -117,7 +117,8 @@ Request format :
     "issuerMerchantId": "<id-of-the-merchant-issuing-the-offer>",
     "description": "<offer-description>",
     "title": "<offer-title>",
-    "discount": "<offer-discount>"
+    "discount": "<offer-discount>", 
+    "userOwner": "<id-of-the-owner-user>"
 }
 ```
 
@@ -145,7 +146,8 @@ Request format :
 {
     "issuerMerchantId": "<id-of-the-merchant-issuing-the-reward>",
     "description": "<reward-description>",
-    "title": "<reward-title>"
+    "title": "<reward-title>", 
+    "userOwner": "<id-of-the-owner-user>"
 }
 ```
 
