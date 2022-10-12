@@ -24,7 +24,7 @@ const scrapeController = {
             // initialize the browser
             const browser = await puppeteer.launch({
                 headless: true,
-                args: ['--no-sandbox','--disable-setuid-sandbox']
+                args: ['--no-sandbox', '--disable-setuid-sandbox']
             });
 
             // open the webpage and begin scraping
@@ -50,89 +50,91 @@ const scrapeController = {
             });
 
             // click the accordion that contains the order details
-            const hasArrowButton = await page.$eval('.checkout-section-toggle-icon', () => true).catch(() => false);
-            
+            const hasArrowButton = await page
+                .$eval('.checkout-section-toggle-icon', () => true)
+                .catch(() => false);
+
             if (hasArrowButton) {
                 await page.click('.checkout-section-toggle-icon');
             } else {
                 return res.status(200).json({
-                    merchantName : mName,
+                    merchantName: mName,
                     totalAmount: tAmount
                 });
             }
 
-            let names, prices, quantities;
+            // let names, prices, quantities;
 
-            const hasNames = await page.$eval('.cart-item__name', () => true).catch(() => false);
+            // const hasNames = await page.$eval('.cart-item__name', () => true).catch(() => false);
 
-            if (hasNames) {
-                // item names
-                await page.waitForSelector('.cart-item__name');
+            // if (hasNames) {
+            //     // item names
+            //     await page.waitForSelector('.cart-item__name');
 
-                names = await page.evaluate(() => {
-                    // eslint-disable-next-line no-undef
-                    const ns = document.body.querySelectorAll('.cart-item__name');
-                    const result = [];
-                    const keys = Object.keys(ns);
-                    keys.forEach(function (key) {
-                        result.push(ns[key].textContent.trim());
-                    });
-                    return result;
-                });
-            }
+            //     names = await page.evaluate(() => {
+            //         // eslint-disable-next-line no-undef
+            //         const ns = document.body.querySelectorAll('.cart-item__name');
+            //         const result = [];
+            //         const keys = Object.keys(ns);
+            //         keys.forEach(function (key) {
+            //             result.push(ns[key].textContent.trim());
+            //         });
+            //         return result;
+            //     });
+            // }
 
-            const hasPrices = await page.$eval('.cart-item__price', () => true).catch(() => false);
+            // const hasPrices = await page.$eval('.cart-item__price', () => true).catch(() => false);
 
-            if (hasPrices) {
-                // item prices
-                await page.waitForSelector('.cart-item__price');
+            // if (hasPrices) {
+            //     // item prices
+            //     await page.waitForSelector('.cart-item__price');
 
-                prices = await page.evaluate(() => {
-                    // eslint-disable-next-line no-undef
-                    const ps = document.body.querySelectorAll('.cart-item__price');
-                    const result = [];
-                    const keys = Object.keys(ps);
+            //     prices = await page.evaluate(() => {
+            //         // eslint-disable-next-line no-undef
+            //         const ps = document.body.querySelectorAll('.cart-item__price');
+            //         const result = [];
+            //         const keys = Object.keys(ps);
 
-                    keys.forEach(function (key) {
-                        result.push(ps[key].textContent.trim());
-                    });
-                    return result;
-                });
-            }
+            //         keys.forEach(function (key) {
+            //             result.push(ps[key].textContent.trim());
+            //         });
+            //         return result;
+            //     });
+            // }
 
-            const hasQuantities = await page.$eval('.cart-item__quantity-readonly', () => true).catch(() => false);
+            // const hasQuantities = await page.$eval('.cart-item__quantity-readonly', () => true).catch(() => false);
 
-            if (hasQuantities) {
-                // item quantities
-                await page.waitForSelector('.cart-item__quantity-readonly');
+            // if (hasQuantities) {
+            //     // item quantities
+            //     await page.waitForSelector('.cart-item__quantity-readonly');
 
-                quantities = await page.evaluate(() => {
-                    // eslint-disable-next-line no-undef
-                    const qs = document.body.querySelectorAll(
-                        '.cart-item__quantity-readonly'
-                    );
-                    const result = [];
-                    const keys = Object.keys(qs);
+            //     quantities = await page.evaluate(() => {
+            //         // eslint-disable-next-line no-undef
+            //         const qs = document.body.querySelectorAll(
+            //             '.cart-item__quantity-readonly'
+            //         );
+            //         const result = [];
+            //         const keys = Object.keys(qs);
 
-                    keys.forEach(function (key) {
-                        result.push(
-                            parseInt(qs[key].textContent.trim().substring(4))
-                        );
-                    });
-                    return result;
-                });
-            }
+            //         keys.forEach(function (key) {
+            //             result.push(
+            //                 parseInt(qs[key].textContent.trim().substring(4))
+            //             );
+            //         });
+            //         return result;
+            //     });
+            // }
 
             return res.status(200).json({
-                merchantName : mName,
-                totalAmount: tAmount,
-                itemNames: hasNames && names,
-                itemPrices: hasPrices && prices,
-                itemQuantities: hasQuantities && quantities
+                merchantName: mName,
+                totalAmount: tAmount
+                // itemNames: hasNames && names,
+                // itemPrices: hasPrices && prices,
+                // itemQuantities: hasQuantities && quantities
             });
         } catch (err) {
             return res.status(500).json({
-                merchantName : 'Everlane',
+                merchantName: 'Everlane',
                 totalAmount: 23.45
             });
         }

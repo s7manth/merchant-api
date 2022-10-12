@@ -7,15 +7,22 @@ const reward = require('../../models/rewardModel');
 
 const createPayment = async (req, res) => {
     try {
-        const { amount, senderId, receiverId, attachmentId } = req.body;
+        const {
+            billAmount,
+            paymentAmount,
+            senderId,
+            receiverId,
+            attachmentIdOne,
+            attachmentIdTwo
+        } = req.body;
 
-        if (!amount || !senderId || !receiverId) {
+        if (!billAmount || !paymentAmount || !senderId || !receiverId) {
             return res.status(400).json({
                 msg: 'Incomplete Information for Payment'
             });
         }
 
-        if (amount <= 0) {
+        if (billAmount < 0 || paymentAmount < 0) {
             return res.status(400).json({
                 msg: 'Amount cannot be Negative or Zero'
             });
@@ -30,7 +37,8 @@ const createPayment = async (req, res) => {
             });
         }
 
-        const attachmentWrapper = await figureOutAttachment(attachmentId);
+        const attachmentWrapperOne = await figureOutAttachment(attachmentIdOne);
+        const attachmentWrapperTwo = await figureOutAttachment(attachmentIdTwo);
 
         const _id = mongoose.Types.ObjectId();
         const paymentObject = new payment({
@@ -39,35 +47,120 @@ const createPayment = async (req, res) => {
             receiver: receiverWrapper.object,
             senderEntityModel: senderWrapper.type,
             receiverEntityModel: receiverWrapper.type,
-            amount: amount,
-            attachment:
-                attachmentWrapper === null
+            billAmount: billAmount,
+            paymentAmount: paymentAmount,
+            attachmentOne:
+                attachmentWrapperOne === null
                     ? undefined
-                    : attachmentWrapper.object,
-            attachmentModel:
-                attachmentWrapper === null ? undefined : attachmentWrapper.type
+                    : attachmentWrapperOne.object,
+            attachmentModelOne:
+                attachmentWrapperOne === null
+                    ? undefined
+                    : attachmentWrapperOne.type,
+            attachmentTwo:
+                attachmentWrapperTwo === null
+                    ? undefined
+                    : attachmentWrapperTwo.object,
+            attachmentModelTwo:
+                attachmentWrapperTwo === null
+                    ? undefined
+                    : attachmentWrapperTwo.type
         });
 
         await paymentObject.save();
 
-        if (senderWrapper.type === 'user') {
-            await user.findByIdAndUpdate(senderId, {
-                payments: [...senderWrapper.object.payments, paymentObject]
-            });
-        } else {
-            await merchant.findByIdAndUpdate(senderId, {
-                payments: [...senderWrapper.object.payments, paymentObject]
-            });
-        }
+        if (billAmount != paymentAmount) {
+            if (attachmentWrapperOne != null) {
+                if (attachmentWrapperOne.type == 'reward') {
+                    let updatedRewardList = [
+                        ...senderWrapper.object.rewards
+                    ].filter((x) => x != attachmentWrapperOne.object._id);
+                    if (senderWrapper.type === 'user') {
+                        await user.findByIdAndUpdate(senderId, {
+                            payments: [
+                                ...senderWrapper.object.payments,
+                                paymentObject
+                            ],
+                            rewards: updatedRewardList
+                        });
+                    } else {
+                        await merchant.findByIdAndUpdate(senderId, {
+                            payments: [
+                                ...senderWrapper.object.payments,
+                                paymentObject
+                            ],
+                            rewards: updatedRewardList
+                        });
+                    }
+                } else {
+                    let updatedOfferList = [
+                        ...senderWrapper.object.offer
+                    ].filter((x) => x != attachmentWrapperOne.object._id);
+                    if (receiverWrapper.type === 'user') {
+                        await user.findByIdAndUpdate(receiverId, {
+                            payments: [
+                                ...receiverWrapper.object.payments,
+                                paymentObject
+                            ],
+                            offers: updatedOfferList
+                        });
+                    } else {
+                        await merchant.findByIdAndUpdate(receiverId, {
+                            payments: [
+                                ...receiverWrapper.object.payments,
+                                paymentObject
+                            ],
+                            offers: updatedOfferList
+                        });
+                    }
+                }
+            }
 
-        if (receiverWrapper.type === 'user') {
-            await user.findByIdAndUpdate(receiverId, {
-                payments: [...receiverWrapper.object.payments, paymentObject]
-            });
-        } else {
-            await merchant.findByIdAndUpdate(receiverId, {
-                payments: [...receiverWrapper.object.payments, paymentObject]
-            });
+            if (attachmentWrapperTwo != null) {
+                if (attachmentWrapperTwo.type == 'reward') {
+                    let updatedRewardList = [
+                        ...senderWrapper.object.rewards
+                    ].filter((x) => x != attachmentWrapperTwo.object._id);
+                    if (senderWrapper.type === 'user') {
+                        await user.findByIdAndUpdate(senderId, {
+                            payments: [
+                                ...senderWrapper.object.payments,
+                                paymentObject
+                            ],
+                            rewards: updatedRewardList
+                        });
+                    } else {
+                        await merchant.findByIdAndUpdate(senderId, {
+                            payments: [
+                                ...senderWrapper.object.payments,
+                                paymentObject
+                            ],
+                            rewards: updatedRewardList
+                        });
+                    }
+                } else {
+                    let updatedOfferList = [
+                        ...senderWrapper.object.offer
+                    ].filter((x) => x != attachmentWrapperTwo.object._id);
+                    if (receiverWrapper.type === 'user') {
+                        await user.findByIdAndUpdate(receiverId, {
+                            payments: [
+                                ...receiverWrapper.object.payments,
+                                paymentObject
+                            ],
+                            offers: updatedOfferList
+                        });
+                    } else {
+                        await merchant.findByIdAndUpdate(receiverId, {
+                            payments: [
+                                ...receiverWrapper.object.payments,
+                                paymentObject
+                            ],
+                            offers: updatedOfferList
+                        });
+                    }
+                }
+            }
         }
 
         return res.status(200).json({

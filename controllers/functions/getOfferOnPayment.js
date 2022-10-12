@@ -7,17 +7,9 @@ const mongoose = require('mongoose');
 
 const getOfferOnPayment = async (req, res) => {
     try {
-        const {
-            userId,
-            paymentId,
-            merchantId
-        } = req.body;
+        const { userId, paymentId, merchantId } = req.body;
 
-        if (
-            !userId ||
-            !paymentId ||
-            !merchantId
-        ) {
+        if (!userId || !paymentId || !merchantId) {
             return res.status(400).json({
                 msg: 'User, Payment, or Merchant Identifier not Provided'
             });
@@ -55,11 +47,19 @@ const getOfferOnPayment = async (req, res) => {
 
         const offerObject = new offer({
             _id: _id,
-            title: merchantObject.configOfferTitle || process.env.DEFAULT_OFFER_TITLE,
-            description: merchantObject.configOfferDescription || process.env.DEFAULT_OFFER_DESCRIPTION,
-            discount: merchantObject.configOfferDiscount || process.env.DEFAULT_OFFER_DISCOUNT,
+            title:
+                merchantObject.configOfferTitle ||
+                process.env.DEFAULT_OFFER_TITLE,
+            description:
+                merchantObject.configOfferDescription ||
+                process.env.DEFAULT_OFFER_DESCRIPTION,
+            discount:
+                merchantObject.configOfferDiscount ||
+                process.env.DEFAULT_OFFER_DISCOUNT,
             issuerMerchant: merchantObject,
-            image: merchantObject.configOfferImage || process.env.DEFAULT_OFFER_IMAGE
+            image:
+                merchantObject.configOfferImage ||
+                process.env.DEFAULT_OFFER_IMAGE
         });
 
         await offerObject.save();

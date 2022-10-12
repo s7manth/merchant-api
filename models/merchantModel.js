@@ -4,7 +4,7 @@ const merchantSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
-        required: true, 
+        required: true,
         default: 'default merchant name'
     },
     configOfferTitle: {
@@ -22,11 +22,11 @@ const merchantSchema = new mongoose.Schema({
     configRewardTitle: {
         type: String,
         trim: true
-    }, 
+    },
     configRewardAmount: {
         type: String,
         trim: true
-    }, 
+    },
     configRewardDescription: {
         type: String,
         trim: true

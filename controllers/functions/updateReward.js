@@ -3,7 +3,8 @@ const merchant = require('../../models/merchantModel');
 
 const updateReward = async (req, res) => {
     try {
-        const { id, description, issuerMerchantId, title, image, value } = req.body;
+        const { id, description, issuerMerchantId, title, image, value } =
+            req.body;
 
         const originalRewardObject = await reward.findById(id);
 
@@ -16,7 +17,7 @@ const updateReward = async (req, res) => {
         await reward.findByIdAndUpdate(id, {
             description: description || originalRewardObject.description,
             title: title || originalRewardObject.title,
-            image: image || originalRewardObject.image, 
+            image: image || originalRewardObject.image,
             value: value || originalRewardObject.value
         });
 

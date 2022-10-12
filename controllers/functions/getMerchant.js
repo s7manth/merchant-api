@@ -54,7 +54,9 @@ const getMerchant = async (req, res) => {
         }
 
         for (let k in rewardDict) {
-            rewardDict[k] = rewardDict[k].map(x => x.value).reduce((sum, number) => sum + number, 0);
+            rewardDict[k] = rewardDict[k]
+                .map((x) => x.value)
+                .reduce((sum, number) => sum + number, 0);
         }
 
         return res.status(200).json({

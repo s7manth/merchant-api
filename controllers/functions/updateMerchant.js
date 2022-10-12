@@ -3,8 +3,18 @@ const offer = require('../../models/offerModel');
 
 const updateMerchant = async (req, res) => {
     try {
-        const { id, name, configOfferTitle, configOfferDiscount, configOfferDescription, configRewardTitle, configRewardAmount, configRewardDescription, configRewardImage, configOfferImage } =
-            req.body;
+        const {
+            id,
+            name,
+            configOfferTitle,
+            configOfferDiscount,
+            configOfferDescription,
+            configRewardTitle,
+            configRewardAmount,
+            configRewardDescription,
+            configRewardImage,
+            configOfferImage
+        } = req.body;
 
         const originalMerchantObject = await merchant.findById(id);
 
@@ -16,14 +26,25 @@ const updateMerchant = async (req, res) => {
 
         await offer.findByIdAndUpdate(id, {
             name: name || originalMerchantObject.name,
-            configOfferTitle: configOfferTitle || originalMerchantObject.configOfferTitle,
-            configOfferDiscount: configOfferDiscount || originalMerchantObject.configOfferDiscount,
-            configOfferDescription: configOfferDescription || originalMerchantObject.configOfferDescription,
-            configRewardTitle: configRewardTitle || originalMerchantObject.configRewardTitle,
-            configRewardAmount: configRewardAmount || originalMerchantObject.configRewardAmount,
-            configRewardDescription: configRewardDescription || originalMerchantObject.configRewardDescription,
-            configOfferImage: configOfferImage || originalMerchantObject.configOfferImage,
-            configRewardImage: configRewardImage || originalMerchantObject.configRewardImage
+            configOfferTitle:
+                configOfferTitle || originalMerchantObject.configOfferTitle,
+            configOfferDiscount:
+                configOfferDiscount ||
+                originalMerchantObject.configOfferDiscount,
+            configOfferDescription:
+                configOfferDescription ||
+                originalMerchantObject.configOfferDescription,
+            configRewardTitle:
+                configRewardTitle || originalMerchantObject.configRewardTitle,
+            configRewardAmount:
+                configRewardAmount || originalMerchantObject.configRewardAmount,
+            configRewardDescription:
+                configRewardDescription ||
+                originalMerchantObject.configRewardDescription,
+            configOfferImage:
+                configOfferImage || originalMerchantObject.configOfferImage,
+            configRewardImage:
+                configRewardImage || originalMerchantObject.configRewardImage
         });
 
         return res.status(200).json({

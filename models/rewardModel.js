@@ -18,11 +18,11 @@ const rewardSchema = new mongoose.Schema({
     image: {
         type: String,
         default: ''
-    }, 
+    },
     value: {
         type: Number,
         default: 0
-    }, 
+    },
     userOwner: {
         type: mongoose.Types.ObjectId,
         ref: 'user',

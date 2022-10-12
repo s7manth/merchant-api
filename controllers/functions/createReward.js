@@ -33,7 +33,7 @@ const createReward = async (req, res) => {
             title: title,
             description: description,
             issuerMerchant: merchantObject,
-            image: process.env.REWARD_IMAGE, 
+            image: process.env.REWARD_IMAGE,
             userOwner: userOwner
         });
 

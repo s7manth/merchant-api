@@ -2,8 +2,8 @@
 
 This repository contains the source code for API for building a DAO. The main
 functionalities include maintaining User-Merchant, Merchant-Merchant, and
-User-User interactions regarding payments, offer and reward issuing and 
-redemptions. 
+User-User interactions regarding payments, offer and reward issuing and
+redemptions.
 
 ### How to use this repository?
 
@@ -37,8 +37,9 @@ In order to start development, the following steps are needed to be followed.
 ### The API Description
 
 The Merchant API has been structured according to the functionalities that are
-exposed at each point. There are three main endpoints : `data`, `logic`, and `scrape`. These
-endpoints are served by the `dataRouter`, `logicRouter`, and `scrapeRouter` respectively.
+exposed at each point. There are three main endpoints : `data`, `logic`, and
+`scrape`. These endpoints are served by the `dataRouter`, `logicRouter`, and
+`scrapeRouter` respectively.
 
 ### Available Functions
 
@@ -117,7 +118,7 @@ Request format :
     "issuerMerchantId": "<id-of-the-merchant-issuing-the-offer>",
     "description": "<offer-description>",
     "title": "<offer-title>",
-    "discount": "<offer-discount>", 
+    "discount": "<offer-discount>",
     "userOwner": "<id-of-the-owner-user>"
 }
 ```
@@ -146,7 +147,7 @@ Request format :
 {
     "issuerMerchantId": "<id-of-the-merchant-issuing-the-reward>",
     "description": "<reward-description>",
-    "title": "<reward-title>", 
+    "title": "<reward-title>",
     "userOwner": "<id-of-the-owner-user>"
 }
 ```
@@ -169,16 +170,20 @@ Endpoint : `/data/payment`
 
 Type of HTTP Request : `POST`
 
-Note : Attachment Identifier is an optional parameter
+Note : Attachment Identifier(s) are optional. There are two attachment
+identifier fields because a single payment can have either offer, reward or
+both.
 
 Request format :
 
 ```json
 {
-    "amount": "<the-amount-associated-with-the-payment>",
+    "billAmount": "<the-bill-amount-associated-with-the-payment>",
+    "paymentAmount": "<the-payment-amount-associated-with-the-payment>",
     "senderId": "<id-of-the-sender-entity>",
     "receiverId": "<id-of-the-receiver-entity>",
-    "attachmentId": "<id-of-the-attachment>"
+    "attachmentIdOne": "<id-of-the-attachment-one>",
+    "attachmentIdTwo": "<id-of-the-attachment-two>"
 }
 ```
 
@@ -714,4 +719,3 @@ Response format :
     "itemQuantities": "<quantities-of-the-items>"
 }
 ```
-

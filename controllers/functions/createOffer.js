@@ -4,7 +4,14 @@ const merchant = require('../../models/merchantModel');
 
 const createOffer = async (req, res) => {
     try {
-        const { issuerMerchantId, description, title, discount, userOwner } = req.body;
+        const {
+            issuerMerchantId,
+            description,
+            title,
+            discount,
+            userOwner,
+            image
+        } = req.body;
 
         const merchantObject = await merchant.findById(issuerMerchantId);
 
@@ -40,7 +47,7 @@ const createOffer = async (req, res) => {
             description: description,
             discount: discount,
             issuerMerchant: merchantObject,
-            image: process.env.OFFER_IMAGE,
+            image: image || process.env.OFFER_IMAGE,
             userOwner: userOwner
         });
 

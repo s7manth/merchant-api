@@ -7,17 +7,9 @@ const mongoose = require('mongoose');
 
 const getRewardOnPayment = async (req, res) => {
     try {
-        const {
-            userId,
-            paymentId,
-            merchantId
-        } = req.body;
+        const { userId, paymentId, merchantId } = req.body;
 
-        if (
-            !userId ||
-            !paymentId ||
-            !merchantId
-        ) {
+        if (!userId || !paymentId || !merchantId) {
             return res.status(400).json({
                 msg: 'User, Payment, or Merchant Identifier not Provided'
             });
@@ -55,11 +47,19 @@ const getRewardOnPayment = async (req, res) => {
 
         const rewardObject = new reward({
             _id: _id,
-            title: merchantObject.configRewardTitle || process.env.DEFAULT_REWARD_TITLE,
-            description: merchantObject.configRewardDescription || process.env.DEFAULT_REWARD_DESCRIPTION,
+            title:
+                merchantObject.configRewardTitle ||
+                process.env.DEFAULT_REWARD_TITLE,
+            description:
+                merchantObject.configRewardDescription ||
+                process.env.DEFAULT_REWARD_DESCRIPTION,
             issuerMerchant: merchantObject,
-            image: merchantObject.configRewardImage || process.env.DEFAULT_REWARD_IMAGE,
-            value: merchantObject.configRewardAmount || process.env.DEFAULT_REWARD_AMOUNT
+            image:
+                merchantObject.configRewardImage ||
+                process.env.DEFAULT_REWARD_IMAGE,
+            value:
+                merchantObject.configRewardAmount ||
+                process.env.DEFAULT_REWARD_AMOUNT
         });
 
         await rewardObject.save();

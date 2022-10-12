@@ -54,7 +54,9 @@ const getUser = async (req, res) => {
         }
 
         for (let k in rewardDict) {
-            rewardDict[k] = rewardDict[k].map(x => x.value).reduce((sum, number) => sum + number, 0);
+            rewardDict[k] = rewardDict[k]
+                .map((x) => x.value)
+                .reduce((sum, number) => sum + number, 0);
         }
 
         return res.status(200).json({
@@ -63,7 +65,6 @@ const getUser = async (req, res) => {
             rewards: rewardDict,
             payments: userObject.payments
         });
-        
     } catch (error) {
         return res.status(500).json({
             msg: error.message

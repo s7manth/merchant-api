@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const paymentSchema = new mongoose.Schema({
-    amount: {
+    billAmount: {
+        type: Number,
+        required: true
+    },
+    paymentAmount: {
         type: Number,
         required: true
     },
@@ -25,12 +29,22 @@ const paymentSchema = new mongoose.Schema({
         required: true,
         enum: ['user', 'merchant']
     },
-    attachment: {
+    attachmentOne: {
         type: mongoose.Types.ObjectId,
         required: false,
-        refType: 'attachmentModel'
+        refType: 'attachmentModelOne'
     },
-    attachmentModel: {
+    attachmentModelOne: {
+        type: String,
+        required: false,
+        enum: ['offer', 'reward']
+    },
+    attachmentTwo: {
+        type: mongoose.Types.ObjectId,
+        required: false,
+        refType: 'attachmentModelTwo'
+    },
+    attachmentModelTwo: {
         type: String,
         required: false,
         enum: ['offer', 'reward']
